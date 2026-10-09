@@ -1,4 +1,4 @@
-/* Bloom Coffee Brunch: interactions (IIFE, no modules) */
+/* Bloom Coffee Brunch Brasil: interactions (IIFE, no modules) */
 (function () {
   "use strict";
 
@@ -45,7 +45,7 @@
     setTimeout(function () { els.forEach(function (el) { el.classList.add("is-in"); }); }, 6000);
   }
 
-  /* ---------- Journey: scroll-scrubbed fly-through ---------- */
+  /* ---------- Journey: scroll-scrubbed fly-through over real photos ---------- */
   function initJourney() {
     var root = $(".journey"); if (!root) return;
     var scenes = $$(".scene", root); if (!scenes.length) return;
@@ -53,20 +53,34 @@
     var rail = $$(".journey__rail li", root);
     var bar = $(".journey__bar span", root);
     var ENTER = 0.22, EXIT = 0.78;
+    var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     root.style.setProperty("--scenes", N);
     root.classList.add("is-live");
 
     var data = scenes.map(function (sc, i) {
-      sc.style.setProperty("--ox", (sc.getAttribute("data-ox") || 50) + "%");
-      sc.style.setProperty("--oy", (sc.getAttribute("data-oy") || 50) + "%");
       sc.style.zIndex = String(N - i);
       return {
         el: sc,
+        shot: $(".shot", sc),
         copy: $(".scene__copy", sc),
         layers: $$(".layer", sc).map(function (l) { return { el: l, d: parseFloat(l.getAttribute("data-depth")) || 0 }; })
       };
     });
+
+    // Zoom origin = centre of the photo, so the camera "enters" the picture
+    function measure() {
+      data.forEach(function (s) {
+        if (!s.shot) return;
+        var cx = s.shot.offsetLeft + s.shot.offsetWidth / 2;
+        var cy = s.shot.offsetTop + s.shot.offsetHeight / 2;
+        // offsetLeft/Top ignore the translate(-50%,-50%) on .shot
+        cx -= s.shot.offsetWidth / 2; cy -= s.shot.offsetHeight / 2;
+        var w = s.el.clientWidth || 1, h = s.el.clientHeight || 1;
+        s.el.style.setProperty("--ox", (cx / w * 100).toFixed(2) + "%");
+        s.el.style.setProperty("--oy", (cy / h * 100).toFixed(2) + "%");
+      });
+    }
 
     var ease = function (x) { return 1 - Math.pow(1 - x, 3); };
     var ticking = false;
@@ -88,19 +102,20 @@
           op = 0;
         } else if (t < 0) {                      // emerging from behind
           var e = ease((t + ENTER) / ENTER);
-          z = 0.82 + 0.18 * e; op = e;
-        } else if (!last && t > EXIT) {          // diving in
+          z = 0.86 + 0.14 * e; op = e;
+        } else if (!last && t > EXIT) {          // diving into the photo
           var x = (t - EXIT) / (1 - EXIT);
-          z = 1.06 + 3.6 * x * x;
-          op = 1 - clamp((x - 0.35) / 0.65, 0, 1);
+          z = 1.05 + 1.9 * x * x;
+          op = 1 - clamp((x - 0.3) / 0.7, 0, 1);
         } else {                                 // hold, slow drift
-          z = 1 + 0.06 * clamp(t, 0, 1); op = 1;
+          z = 1 + 0.05 * clamp(t, 0, 1); op = 1;
         }
+        if (calm) z = 1;
         s.el.style.opacity = op.toFixed(3);
         s.el.style.visibility = op <= 0.001 ? "hidden" : "visible";
         if (op > 0.001) {
           s.layers.forEach(function (l) {
-            var sc = 1 + (z - 1) * (1 + 0.35 * l.d);
+            var sc = 1 + (z - 1) * (l.d ? 1.25 : 0.55);
             l.el.style.transform = "scale(" + sc.toFixed(4) + ")";
           });
         }
@@ -109,15 +124,46 @@
                        : Math.min(clamp((t - 0.06) / 0.12, 0, 1), clamp((0.74 - t) / 0.1, 0, 1));
           if (first && p < 0.06) a = 1;
           s.copy.style.opacity = a.toFixed(3);
-          s.copy.style.translate = "0 " + ((1 - a) * 24).toFixed(1) + "px";
+          s.copy.style.translate = "0 " + ((1 - a) * 20).toFixed(1) + "px";
           s.copy.style.pointerEvents = a > 0.5 ? "auto" : "none";
         }
       });
     }
     var req = function () { if (!ticking) { ticking = true; requestAnimationFrame(render); } };
     window.addEventListener("scroll", req, { passive: true });
-    window.addEventListener("resize", req);
+    window.addEventListener("resize", function () { measure(); req(); });
+    window.addEventListener("load", function () { measure(); req(); });
+    measure();
     render();
+  }
+
+  /* ---------- Menu tabs (ARIA tabs, arrow-key navigation) ---------- */
+  function initTabs() {
+    var tabs = $$(".menu__tabs [role='tab']"); if (!tabs.length) return;
+    function select(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute("aria-selected", String(on));
+        t.tabIndex = on ? 0 : -1;
+        var panel = document.getElementById(t.getAttribute("aria-controls"));
+        if (panel) panel.hidden = !on;
+      });
+      if (focus) tab.focus();
+      if (tab.scrollIntoView && tab.parentNode.scrollWidth > tab.parentNode.clientWidth) {
+        tab.parentNode.scrollTo({ left: tab.offsetLeft - 16, behavior: "smooth" });
+      }
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener("click", function () { select(t, false); });
+      t.addEventListener("keydown", function (e) {
+        var k = e.key, n = null;
+        if (k === "ArrowRight") n = tabs[(i + 1) % tabs.length];
+        if (k === "ArrowLeft") n = tabs[(i - 1 + tabs.length) % tabs.length];
+        if (k === "Home") n = tabs[0];
+        if (k === "End") n = tabs[tabs.length - 1];
+        if (n) { e.preventDefault(); select(n, true); }
+      });
+    });
   }
 
   /* ---------- Hours: highlight today's row (not an "open now" claim) ---------- */
@@ -165,7 +211,7 @@
     var load = function () {
       if (box.querySelector("iframe")) return;
       var f = document.createElement("iframe");
-      f.title = "Mapa: cómo llegar a Bloom Coffee Brunch";
+      f.title = "Mapa: cómo llegar a Bloom Coffee Brunch Brasil";
       f.loading = "lazy";
       f.referrerPolicy = "no-referrer-when-downgrade";
       f.src = "https://www.google.com/maps?q=" + encodeURIComponent(B.mapsQuery || "Bloom Coffee Brunch Vigo") + "&output=embed";
@@ -196,6 +242,7 @@
     safe(initHours, "hours");
     safe(initReveal, "reveal");
     safe(initJourney, "journey");
+    safe(initTabs, "tabs");
     safe(initMap, "map");
     safe(initVideos, "videos");
   }

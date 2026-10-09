@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <script>document.documentElement.classList.add("js");</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bloom Coffee Brunch Brasil · Cafetería brasileña en Vigo</title>
+  <meta name="description" content="Bloom Coffee Brunch Brasil, cafetería brasileña en Vigo. Açaí, pan de queso, coxinha, tostas, batidos y café. Lunes a viernes 9:00–22:00, sábado 10:00–23:00.">
+  <link rel="canonical" href="https://bloomcoffeebrunch.com/">
+  <meta name="theme-color" content="#fbf4ee">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Bloom Coffee Brunch Brasil · Vigo">
+  <meta property="og:description" content="Sabores de Brasil en Vigo: açaí, pan de queso, coxinha, tostas y café.">
+  <meta property="og:image" content="https://bloomcoffeebrunch.com/assets/img/acai-cerezas.webp">
+  <meta property="og:url" content="https://bloomcoffeebrunch.com/">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap">
+  <link rel="preload" as="image" href="assets/img/acai-cerezas.webp">
+  <link rel="stylesheet" href="styles.css?v=20261009b">
+  <script defer src="lib/manifest.js?v=20261009b"></script>
+  <script defer src="main.js?v=20261009b"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "Bloom Coffee Brunch Brasil",
+    "url": "https://bloomcoffeebrunch.com/",
+    "image": "https://bloomcoffeebrunch.com/assets/img/acai-cerezas.webp",
+    "servesCuisine": ["Brasileña", "Brunch", "Café"],
+    "priceRange": "€",
+    "address": { "@type": "PostalAddress", "streetAddress": "Calle Ángel Janos, 10", "addressLocality": "Vigo", "addressCountry": "ES" },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "22:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "10:00", "closes": "23:00" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Brazilian "calçadão" wave pattern, used tone-on-tone as a texture -->
+  <svg width="0" height="0" style="position:absolute;color:#f3d3cb" aria-hidden="true" focusable="false">
+    <defs>
+      <pattern id="ondas" width="120" height="60" patternUnits="userSpaceOnUse">
+        <path d="M0 15c20 0 20-15 40-15s20 15 40 15 20-15 40-15M0 45c20 0 20-15 40-15s20 15 40 15 20-15 40-15" fill="none" stroke="currentColor" stroke-width="3"/>
+      </pattern>
+    </defs>
+  </svg>
+
+  <!-- Splash: hidden by JS on load, and by a CSS animation at 4.5s as a safety net -->
+  <div class="splash" aria-hidden="true">
+    <img class="splash__bear" src="assets/img/osito-bloom.webp" alt="" width="212" height="290">
+    <p class="splash__word">Bom dia!</p>
+  </div>
+
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="#top" aria-label="Bloom Coffee Brunch Brasil, inicio">
+      <img class="nav__bear" src="assets/img/osito-bloom.webp" alt="" width="212" height="290">
+      <span class="wordmark">Bloom<small>Coffee Brunch Brasil</small></span>
+    </a>
+    <button class="nav__toggle" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú"><span></span><span></span></button>
+    <nav class="nav__links" id="menu-movil" aria-label="Principal">
+      <a href="#estrella">Açaí</a>
+      <a href="#paseo">El paseo</a>
+      <a href="#carta">Carta</a>
+      <a href="#sobre">Sobre Bloom</a>
+      <a href="#local">El local</a>
+      <a href="#visita">Horario</a>
+      <a class="btn btn--rose nav__cta" href="#visita">Cómo llegar</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="contenido">
+      <svg class="hero__waves" aria-hidden="true"><rect width="100%" height="100%" fill="url(#ondas)"/></svg>
+      <div class="hero__inner">
+        <div class="hero__text">
+          <p class="eyebrow">Sabores de Brasil · Vigo</p>
+          <h1 class="hero__title">
+            <span class="line"><span>Un viaje a Brasil</span></span>
+            <span class="line"><span><em>en cada bocado.</em></span></span>
+          </h1>
+          <p class="hero__lede">Açaí, pan de queso, coxinha y pastel de feria. También tostas, bollería, batidos y café. Un proyecto familiar en Vigo pensado para disfrutar y sentirse en casa.</p>
+          <div class="hero__ctas">
+            <a class="btn btn--rose" href="#carta">Ver la carta</a>
+            <a class="btn btn--line" href="#visita">Horario y cómo llegar</a>
+          </div>
+          <ul class="hero__hours" aria-label="Horario">
+            <li><strong>L–V</strong> 9:00–22:00</li>
+            <li><strong>Sáb</strong> 10:00–23:00</li>
+            <li><strong>Dom</strong> cerrado</li>
+          </ul>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero__disc" aria-hidden="true"></div>
+          <figure class="hero__arch">
+            <img src="assets/img/acai-cerezas.webp" alt="Copa de açaí con nata, fresas y cerezas frente a la barra rosa de Bloom" width="712" height="820" fetchpriority="high">
+          </figure>
+          <figure class="hero__bear" aria-hidden="true"><img src="assets/img/osito-bloom.webp" alt="" width="212" height="290"></figure>
+          <p class="hero__sticker"><span>desde</span><strong>7,90 €</strong><span>açaí</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RIBBON ===================== -->
+    <div class="ribbon" aria-hidden="true">
+      <div class="ribbon__track">
+        <span>açaí</span><i>♥</i><span>pan de queso</span><i>♥</i><span>coxinha</span><i>♥</i><span>pastel de feria</span><i>♥</i><span>caipiriña</span><i>♥</i><span>bom dia</span><i>♥</i><span>tostas</span><i>♥</i><span>batidos</span><i>♥</i>
+        <span>açaí</span><i>♥</i><span>pan de queso</span><i>♥</i><span>coxinha</span><i>♥</i><span>pastel de feria</span><i>♥</i><span>caipiriña</span><i>♥</i><span>bom dia</span><i>♥</i><span>tostas</span><i>♥</i><span>batidos</span><i>♥</i>
+      </div>
+    </div>
+
+    <!-- ===================== PRODUCTO ESTRELLA ===================== -->
+    <section class="star" id="estrella" aria-labelledby="star-title">
+      <div class="star__media reveal">
+        <div class="star__disc" aria-hidden="true"></div>
+        <img src="assets/img/acai-bowl.webp" alt="Açaí de Bloom servido en copa de cristal con topping cremoso, fresas y crumble" width="610" height="760" loading="lazy">
+        <span class="star__badge" aria-hidden="true">O favorito</span>
+      </div>
+      <div class="star__text reveal">
+        <p class="eyebrow">Producto estrella</p>
+        <h2 id="star-title">Açaí</h2>
+        <p class="star__lede">Açaí cremoso acompañado de granola, plátano y fresas. Energía, frescura y sabor en cada cucharada.</p>
+        <p class="star__price"><span>7,90 €</span></p>
+        <h3 class="star__sub">Ponle tus extras</h3>
+        <ul class="star__parts" aria-label="Extras para el açaí">
+          <li>Plátano <b>0,80 €</b></li>
+          <li>Fresa <b>0,80 €</b></li>
+          <li>Granola <b>0,80 €</b></li>
+          <li>Leche en polvo <b>0,80 €</b></li>
+          <li>Leche condensada <b>0,80 €</b></li>
+          <li>Crema de pistacho <b>1,20 €</b></li>
+        </ul>
+        <a class="btn btn--rose" href="#visita">Ven a probarlo</a>
+      </div>
+    </section>
+
+    <!-- ===================== PASEO (scroll-scrubbed fly-through, real photos) ===================== -->
+    <section class="journey" id="paseo" aria-label="Un paseo por Bloom">
+      <div class="journey__intro">
+        <p class="eyebrow">Entra con nosotros</p>
+        <h2>De la terraza a tu taza.</h2>
+        <p>Baja despacio: la cámara entra en cada momento.</p>
+      </div>
+      <div class="journey__stage">
+
+        <article class="scene scene--l">
+          <div class="layer layer--bg" data-depth="0" style="background-image:url(assets/img/blur-terraza-1.webp)"></div>
+          <div class="layer" data-depth="1"><figure class="shot shot--land"><img src="assets/img/terraza-1.webp" alt="Terraza de Bloom con toldo negro y mesas de madera" width="650" height="380"></figure></div>
+          <div class="scene__copy">
+            <p class="scene__num">01 · A terraza</p>
+            <h2>Empieza en la terraza.</h2>
+            <p>Toldo negro, sillas blancas y mesas de madera. Fuera o dentro, tú eliges.</p>
+          </div>
+        </article>
+
+        <article class="scene scene--r">
+          <div class="layer layer--bg" data-depth="0" style="background-image:url(assets/img/blur-barra-logo.webp)"></div>
+          <div class="layer" data-depth="1"><figure class="shot shot--land shot--small"><img src="assets/img/barra-logo.webp" alt="La barra rosa de Bloom con el rótulo Coffee Bloom Brunch" width="318" height="240"></figure></div>
+          <div class="scene__copy">
+            <p class="scene__num">02 · O balcão</p>
+            <h2>La barra rosa.</h2>
+            <p>Listones rosas, luz cálida y la vitrina a la vista. Aquí se pide y se charla.</p>
+          </div>
+        </article>
+
+        <article class="scene scene--l">
+          <div class="layer layer--bg" data-depth="0" style="background-image:url(assets/img/blur-brunch-tosta.webp)"></div>
+          <div class="layer" data-depth="1"><figure class="shot shot--square"><img src="assets/img/brunch-tosta.webp" alt="Mesa de Bloom con latte, zumo de naranja y tosta de jamón serrano con tomate" width="715" height="730" loading="lazy"></figure></div>
+          <div class="scene__copy">
+            <p class="scene__num">03 · A mesa</p>
+            <h2>Brunch y tostas.</h2>
+            <p>Café con leche, zumo de naranja y una tosta recién hecha. Mesa puesta.</p>
+          </div>
+        </article>
+
+        <article class="scene scene--r">
+          <div class="layer layer--bg" data-depth="0" style="background-image:url(assets/img/blur-acai-cerezas.webp)"></div>
+          <div class="layer" data-depth="1"><figure class="shot shot--square"><img src="assets/img/acai-cerezas.webp" alt="Copa de açaí con nata, fresas y cerezas" width="712" height="820" loading="lazy"></figure></div>
+          <div class="scene__copy">
+            <p class="scene__num">04 · O açaí</p>
+            <h2>Morado, frío y generoso.</h2>
+            <p>El sabor amazónico que más se pide en Bloom.</p>
+          </div>
+        </article>
+
+        <article class="scene scene--c scene--last">
+          <div class="layer layer--bg" data-depth="0" style="background-image:url(assets/img/blur-cafe-buen-dia.webp)"></div>
+          <div class="layer" data-depth="1"><figure class="shot shot--tall"><img src="assets/img/cafe-buen-dia.webp" alt="Café con espuma azul y el mensaje Buen día dibujado, junto a un jarrón de flores" width="730" height="1280" loading="lazy"></figure></div>
+          <div class="scene__copy">
+            <p class="scene__num">05 · O cafezinho</p>
+            <h2>Y quedarse un rato.</h2>
+            <p>Un café con mensaje y la mesa es tuya. Seja bem-vindo.</p>
+            <a class="btn btn--rose" href="#carta">Ver la carta</a>
+          </div>
+        </article>
+
+        <ol class="journey__rail" aria-hidden="true">
+          <li>Terraza</li><li>Barra</li><li>Mesa</li><li>Açaí</li><li>Café</li>
+        </ol>
+        <div class="journey__bar" aria-hidden="true"><span></span></div>
+      </div>
+    </section>
+
+    <!-- ===================== SABORES DE BRASIL ===================== -->
+    <section class="brasil" aria-labelledby="brasil-title">
+      <div class="section-head reveal">
+        <p class="eyebrow">Sabores de Brasil</p>
+        <h2 id="brasil-title">Lo brasileño de verdad.</h2>
+        <p>Los clásicos de Brasil, en Vigo.</p>
+      </div>
+      <ul class="brasil__grid">
+        <li class="snack reveal"><img src="assets/img/menu-acai.webp" alt="" width="210" height="180" loading="lazy"><div><h3>Açaí</h3><p>Con granola, plátano y fresas.</p></div><b>7,90 €</b></li>
+        <li class="snack reveal"><img src="assets/img/menu-pan-de-queso.webp" alt="" width="250" height="140" loading="lazy"><div><h3>Pan de queso</h3><p>Bollitos de queso horneados, crujientes por fuera y suaves por dentro.</p></div><b>1,30 €</b></li>
+        <li class="snack reveal"><img src="assets/img/menu-coxinha.webp" alt="" width="210" height="140" loading="lazy"><div><h3>Coxinha de pollo con catupiry</h3><p>Rellena de pollo desmenuzado y catupiry, empanada y frita.</p></div><b>3,50 €</b></li>
+        <li class="snack reveal"><img src="assets/img/menu-pastel.webp" alt="" width="265" height="210" loading="lazy"><div><h3>Pastel a la feria</h3><p>Pollo con queso, carne con queso o pizza.</p></div><b>6,50 €</b></li>
+      </ul>
+      <p class="fineprint">Imágenes de producto tomadas de la carta de Bloom.</p>
+    </section>
+
+    <!-- ===================== CARTA ===================== -->
+    <section class="menu" id="carta" aria-labelledby="menu-title">
+      <div class="section-head reveal">
+        <p class="eyebrow">La carta</p>
+        <h2 id="menu-title">Una carta para disfrutar sin prisas.</h2>
+        <p>Precios según la carta del local.</p>
+      </div>
+
+      <div class="menu__tabs" role="tablist" aria-label="Secciones de la carta">
+        <button role="tab" id="t-brasil" aria-controls="p-brasil" aria-selected="true">Brasil</button>
+        <button role="tab" id="t-brunch" aria-controls="p-brunch" aria-selected="false" tabindex="-1">Brunch y tostas</button>
+        <button role="tab" id="t-cafe" aria-controls="p-cafe" aria-selected="false" tabindex="-1">Café</button>
+        <button role="tab" id="t-boll" aria-controls="p-boll" aria-selected="false" tabindex="-1">Bollería</button>
+        <button role="tab" id="t-bat" aria-controls="p-bat" aria-selected="false" tabindex="-1">Batidos</button>
+        <button role="tab" id="t-tapas" aria-controls="p-tapas" aria-selected="false" tabindex="-1">Tapas</button>
+        <button role="tab" id="t-coc" aria-controls="p-coc" aria-selected="false" tabindex="-1">Cócteles</button>
+      </div>
+
+      <div class="menu__panels">
+        <div class="menu__panel" role="tabpanel" id="p-brasil" aria-labelledby="t-brasil">
+          <h3 class="menu__cat">Sabores de Brasil</h3>
+          <ul class="menu__list">
+            <li><div><h4>Açaí</h4><p>Açaí cremoso acompañado de granola, plátano y fresas.</p></div><span>7,90 €</span></li>
+            <li><div><h4>Pan de queso</h4><p>Bollitos de queso horneados, crujientes por fuera y suaves por dentro.</p></div><span>1,30 €</span></li>
+            <li><div><h4>Coxinha de pollo con catupiry</h4><p>Masa suave, rellena de pollo desmenuzado y cremoso catupiry, empanada y frita.</p></div><span>3,50 €</span></li>
+            <li><div><h4>Pastel a la feria · pollo con queso</h4><p>Pollo desmenuzado con queso derretido.</p></div><span>6,50 €</span></li>
+            <li><div><h4>Pastel a la feria · carne con queso</h4><p>Carne sazonada con queso derretido.</p></div><span>6,50 €</span></li>
+            <li><div><h4>Pastel a la feria · pizza</h4><p>Salsa de tomate, jamón, queso y orégano.</p></div><span>6,50 €</span></li>
+          </ul>
+          <h3 class="menu__cat">Extras</h3>
+          <ul class="menu__chips">
+            <li>Plátano · 0,80 €</li><li>Fresa · 0,80 €</li><li>Granola · 0,80 €</li><li>Leche en polvo · 0,80 €</li><li>Leche condensada · 0,80 €</li><li>Crema de pistacho · 1,20 €</li>
+          </ul>
+        </div>
+
+        <div class="menu__panel" role="tabpanel" id="p-brunch" aria-labelledby="t-brunch" hidden>
+          <h3 class="menu__cat">Tostas</h3>
+          <ul class="menu__list">
+            <li><div><h4>Aguacate, jamón serrano y huevo benedict</h4><p>Aguacate en láminas, jamón serrano, huevo poché y salsa holandesa.</p></div><span>8,50 €</span></li>
+            <li><div><h4>Mermelada y queso crema</h4><p>Queso crema suave y mermelada de frutos rojos.</p></div><span>4,60 €</span></li>
+            <li><div><h4>Brisa del Huerto</h4><p>Tomate triturado, un toque de aceite de oliva virgen extra y sal en escamas.</p></div><span>4,50 €</span></li>
+            <li><div><h4>Esencia Bloom</h4><p>Queso en crema, jamón serrano y aguacate.</p></div><span>6,60 €</span></li>
+            <li><div><h4>Alma Serena</h4><p>Queso en crema, pavo, aguacate y semillas de chía.</p></div><span>7,00 €</span></li>
+            <li><div><h4>Despertar Bloom</h4><p>Aguacate cremoso, pavo y huevo revuelto.</p></div><span>7,80 €</span></li>
+            <li><div><h4>Dulce Encuentro</h4><p>Nutella, plátano, fresa y un toque extra de Nutella.</p></div><span>6,20 €</span></li>
+            <li><div><h4>Jardín de Pistacho</h4><p>Crema de pistacho, plátano, fresa y pistacho crujiente.</p></div><span>7,20 €</span></li>
+          </ul>
+          <h3 class="menu__cat">Extras</h3>
+          <ul class="menu__chips"><li>Huevo a la plancha · 1,20 €</li><li>Huevo revuelto · 1,20 €</li><li>Bacon · 1,30 €</li><li>Semillas de chía · 0,70 €</li></ul>
+        </div>
+
+        <div class="menu__panel" role="tabpanel" id="p-cafe" aria-labelledby="t-cafe" hidden>
+          <h3 class="menu__cat">Cafés y chocolates</h3>
+          <ul class="menu__list menu__list--cols">
+            <li><div><h4>Café solo</h4></div><span>1,40 €</span></li>
+            <li><div><h4>Cortado</h4></div><span>1,50 €</span></li>
+            <li><div><h4>Con leche pequeño</h4></div><span>1,60 €</span></li>
+            <li><div><h4>Con leche grande</h4></div><span>1,70 €</span></li>
+            <li><div><h4>Americano</h4></div><span>1,60 €</span></li>
+            <li><div><h4>Capuchino</h4></div><span>2,50 €</span></li>
+            <li><div><h4>Café bombón</h4></div><span>2,70 €</span></li>
+            <li><div><h4>Chocolate</h4></div><span>3,00 €</span></li>
+            <li><div><h4>Chocolate con churros pequeño</h4></div><span>2,80 €</span></li>
+            <li><div><h4>Chocolate con churros grande</h4></div><span>2,80 €</span></li>
+          </ul>
+          <h3 class="menu__cat">Infusiones naturales</h3>
+          <ul class="menu__chips">
+            <li>Agua de Jamaica · 1,70 €</li><li>Red Velvet · 1,70 €</li><li>Menta Poleo · 1,70 €</li><li>Frutos Rojos · 1,70 €</li><li>Manzanilla · 1,70 €</li><li>Rooibos · 1,70 €</li><li>Té Rojo · 1,70 €</li><li>Té Negro · 1,70 €</li><li>Té Verde · 1,70 €</li><li>Jengibre Limón · 1,70 €</li><li>Piña Colada · 1,80 €</li><li>Naranja Maracuyá</li>
+          </ul>
+        </div>
+
+        <div class="menu__panel" role="tabpanel" id="p-boll" aria-labelledby="t-boll" hidden>
+          <h3 class="menu__cat">Bollería</h3>
+          <ul class="menu__list">
+            <li><div><h4>Pony</h4><p>Suave hojaldre relleno de chocolate, decorado con virutas.</p></div><span>1,80 €</span></li>
+            <li><div><h4>Croissant</h4><p>Mantequilla, hojaldrado y dorado.</p></div><span>1,80 €</span></li>
+            <li><div><h4>Donut</h4><p>Esponjoso, cubierto de glaseado y decorado con virutas.</p></div><span>1,70 €</span></li>
+            <li><div><h4>Napolitana</h4><p>Hojaldre dorado relleno de chocolate, con azúcar glas y virutas.</p></div><span>1,80 €</span></li>
+            <li><div><h4>Bollo de leche con crema</h4><p>Tierno bollo de leche cubierto con crema pastelera.</p></div><span>1,80 €</span></li>
+            <li><div><h4>Trenza</h4><p>Esponjosa y aromática.</p></div><span>4,50 €</span></li>
+            <li><div><h4>Brisa de Dulce</h4><p>Suave bollo relleno de dulce de leche.</p></div><span>2,50 €</span></li>
+          </ul>
+          <h3 class="menu__cat">Raciones de churros</h3>
+          <ul class="menu__chips"><li>Ración de churros</li><li>Media ración de churros</li></ul>
+        </div>
+
+        <div class="menu__panel" role="tabpanel" id="p-bat" aria-labelledby="t-bat" hidden>
+          <h3 class="menu__cat">Batidos</h3>
+          <ul class="menu__list">
+            <li><div><h4>Fresa y plátano</h4><p>Fresa y plátano con leche.</p></div><span>6,50 €</span></li>
+            <li><div><h4>Fresa</h4><p>Batido de fresa con leche, cremoso y refrescante.</p></div><span>6,50 €</span></li>
+            <li><div><h4>Maracuyá en leche</h4><p>Batido cremoso de maracuyá con leche.</p></div><span>6,80 €</span></li>
+            <li><div><h4>Maracuyá en agua</h4><p>Refrescante y afrutado.</p></div><span>6,70 €</span></li>
+            <li><div><h4>Frutos rojos</h4><p>Mezcla de frutos rojos con leche.</p></div><span>6,50 €</span></li>
+            <li><div><h4>Oreo</h4><p>Batido de Oreo con leche y trocitos de galleta.</p></div><span>6,80 €</span></li>
+          </ul>
+        </div>
+
+        <div class="menu__panel" role="tabpanel" id="p-tapas" aria-labelledby="t-tapas" hidden>
+          <h3 class="menu__cat">Tapas</h3>
+          <ul class="menu__list">
+            <li><div><h4>Pimientos de Padrón</h4><p>Pimientos fritos con sal en escamas.</p></div></li>
+            <li><div><h4>Huevos rotos con jamón</h4><p>Patatas fritas con huevos rotos y jamón serrano.</p></div></li>
+            <li><div><h4>Tortilla española</h4><p>Tradicional, jugosa por dentro.</p></div></li>
+            <li><div><h4>Huevos revueltos con bacon</h4></div></li>
+          </ul>
+          <h3 class="menu__cat">Sándwiches y hamburguesas</h3>
+          <ul class="menu__list">
+            <li><div><h4>Sándwich mixto</h4><p>Jamón york y queso fundido.</p></div></li>
+            <li><div><h4>Hamburguesa completa</h4><p>Lechuga, tomate, jamón york, queso, cebolla y bacon.</p></div></li>
+            <li><div><h4>Hamburguesa solo carne y queso</h4><p>Carne de ternera con queso fundido.</p></div></li>
+            <li><div><h4>Ración de patatas</h4></div></li>
+            <li><div><h4>Gambas empanado</h4></div></li>
+          </ul>
+          <p class="menu__note">Precios de esta sección: consúltalos en el local.</p>
+        </div>
+
+        <div class="menu__panel" role="tabpanel" id="p-coc" aria-labelledby="t-coc" hidden>
+          <h3 class="menu__cat">Cócteles</h3>
+          <ul class="menu__list">
+            <li><div><h4>Bloom Original</h4><p>Caipiriña original. La clásica brasileña.</p></div></li>
+            <li><div><h4>Golden Bloom</h4><p>Caipiriña de maracuyá.</p></div></li>
+            <li><div><h4>Purple Bloom</h4><p>Caipiriña de açaí.</p></div></li>
+            <li><div><h4>Pink Blossom</h4><p>Caipiriña de fresa.</p></div></li>
+            <li><div><h4>Mojito Bloom</h4><p>Mojito.</p></div></li>
+            <li><div><h4>Bloom Tonic</h4><p>Gin tonic. El clásico que nunca falla.</p></div></li>
+            <li><div><h4>Berry Bloom</h4><p>Gin con frambuesa.</p></div></li>
+            <li><div><h4>Mata León <span class="tag">especial de la casa</span></h4><p>Whisky + gin + Coca-Cola. Solo para los valientes.</p></div></li>
+          </ul>
+          <p class="menu__note">Precios de esta sección: consúltalos en el local. Bebidas alcohólicas solo para mayores de 18 años.</p>
+        </div>
+      </div>
+      <p class="menu__allergy">¿Alergias o intolerancias? Pregúntanos antes de pedir.</p>
+    </section>
+
+    <!-- ===================== SOBRE BLOOM ===================== -->
+    <section class="about" id="sobre" aria-labelledby="about-title">
+      <div class="about__photo reveal">
+        <img src="assets/img/barra-logo.webp" alt="La barra de Bloom: listones rosas, rótulo Coffee Bloom Brunch y seto verde" width="318" height="240" loading="lazy">
+        <img class="about__cup" src="assets/img/brunch-tosta.webp" alt="Latte con corazón y tosta en una mesa de Bloom" width="715" height="730" loading="lazy">
+      </div>
+      <div class="about__text reveal">
+        <p class="eyebrow">Sobre Bloom</p>
+        <h2 id="about-title">Un lugar para disfrutar y <em>sentirse en casa.</em></h2>
+        <p><strong>Bloom Coffee &amp; Brunch</strong> es mucho más que una cafetería. Es un proyecto familiar nacido de la experiencia, la ilusión y las ganas de crear un lugar diferente.</p>
+        <p>Después de años trabajando en hostelería, sus fundadores decidieron comenzar una nueva aventura coincidiendo con uno de los momentos más importantes de sus vidas: <strong>el nacimiento de su hija.</strong> Así comenzó Bloom.</p>
+        <p class="about__pt">Raíces brasileñas, casa en Vigo. <span lang="pt">Com carinho.</span></p>
+      </div>
+    </section>
+
+    <!-- ===================== OSITO ===================== -->
+    <section class="mascot" aria-labelledby="mascot-title">
+      <svg class="mascot__waves" aria-hidden="true"><rect width="100%" height="100%" fill="url(#ondas)"/></svg>
+      <figure class="mascot__bear reveal">
+        <img src="assets/img/osito-taza.webp" alt="El osito Bloom, un peluche rosa con pajarita de cuadros, abrazando una taza Bloom" width="280" height="260" loading="lazy">
+        <p class="mascot__bubble" aria-hidden="true">Bom dia!</p>
+      </figure>
+      <div class="mascot__text reveal">
+        <p class="eyebrow">O ursinho Bloom</p>
+        <h2 id="mascot-title">El osito de la casa.</h2>
+        <p>Rosa, achuchable y con su pajarita de cuadros. El osito Bloom es la cara de nuestra marca: está en nuestra carta y en toda nuestra imagen.</p>
+        <p class="mascot__hint">Y en el local, un primo suyo te espera junto a la ventana.</p>
+      </div>
+      <figure class="mascot__photo reveal">
+        <img src="assets/img/osito-ventana.webp" alt="Osito de peluche marrón sentado en una silla verde junto al ventanal de Bloom" width="325" height="540" loading="lazy">
+      </figure>
+    </section>
+
+    <!-- ===================== EL LOCAL ===================== -->
+    <section class="place" id="local" aria-labelledby="place-title">
+      <div class="section-head reveal">
+        <p class="eyebrow">El local</p>
+        <h2 id="place-title">Así es Bloom, por dentro y por fuera.</h2>
+        <p>Barra rosa, sillas verdes, bambú, ventanales y una terraza con toldo.</p>
+      </div>
+      <div class="place__grid">
+        <figure class="place__item place__item--video reveal">
+          <video poster="assets/img/bloom-interior-poster.webp" muted loop playsinline preload="none" data-autoplay aria-label="Vídeo del interior de Bloom"><source src="assets/video/bloom-interior.webm" type="video/webm"><source src="assets/video/bloom-interior.mp4" type="video/mp4"></video>
+          <figcaption>Dentro</figcaption>
+        </figure>
+        <figure class="place__item place__item--wide reveal"><img src="assets/img/terraza-1.webp" alt="Terraza de Bloom al anochecer con toldo negro y mesas de madera" width="650" height="380" loading="lazy"><figcaption>La terraza</figcaption></figure>
+        <figure class="place__item reveal"><img src="assets/img/cafe-buen-dia.webp" alt="Café con espuma azul y mensaje Buen día" width="730" height="1280" loading="lazy"><figcaption>Buen día</figcaption></figure>
+        <figure class="place__item reveal"><img src="assets/img/sala.webp" alt="Sala interior con sillas verdes y bambú junto al ventanal" width="325" height="540" loading="lazy"><figcaption>La sala</figcaption></figure>
+        <figure class="place__item place__item--wide reveal"><img src="assets/img/terraza-2.webp" alt="Terraza de Bloom con sillas blancas" width="650" height="380" loading="lazy"><figcaption>Fuera</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ===================== VISITA ===================== -->
+    <section class="visit" id="visita" aria-labelledby="visit-title">
+      <div class="visit__card reveal">
+        <img class="visit__bear" src="assets/img/osito-bloom.webp" alt="" width="212" height="290" loading="lazy">
+        <p class="eyebrow">Ven a vernos</p>
+        <h2 id="visit-title">Tu desayuno te está esperando.</h2>
+        <div class="visit__grid">
+          <div class="visit__block">
+            <h3>Horario</h3>
+            <ul class="hours">
+              <li data-days="1,2,3,4,5"><span>Lunes a viernes</span><span>9:00 – 22:00</span></li>
+              <li data-days="6"><span>Sábado</span><span>10:00 – 23:00</span></li>
+              <li data-days="0"><span>Domingo</span><span>Cerrado</span></li>
+            </ul>
+          </div>
+          <div class="visit__block">
+            <h3>Dirección</h3>
+            <p class="visit__addr" data-brand="address">Calle Ángel Janos, 10<br>Vigo</p>
+            <a class="btn btn--rose" data-brand="maps" href="https://www.google.com/maps/search/?api=1&amp;query=Bloom+Coffee+Brunch+Calle+%C3%81ngel+Janos+10+Vigo" target="_blank" rel="noopener">Abrir en Google Maps</a>
+          </div>
+          <div class="visit__block" data-contact>
+            <h3>Contacto</h3>
+            <ul class="contact">
+              <li><a href="https://bloomcoffeebrunch.com/">bloomcoffeebrunch.com</a></li>
+              <li data-brand="phone" hidden></li>
+              <li data-brand="whatsapp" hidden></li>
+              <li data-brand="instagram" hidden></li>
+              <li data-brand="email" hidden></li>
+            </ul>
+          </div>
+        </div>
+        <div class="visit__map" data-map>
+          <a class="visit__map-fallback" href="https://www.google.com/maps/search/?api=1&amp;query=Bloom+Coffee+Brunch+Calle+%C3%81ngel+Janos+10+Vigo" target="_blank" rel="noopener">Ver mapa →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <p class="wordmark wordmark--big">Bloom<small>Coffee Brunch Brasil</small></p>
+        <p class="footer__tag">Hecho con amor, para que cada día florezca.</p>
+      </div>
+      <div>
+        <h3>Horario</h3>
+        <p>Lunes a viernes 9:00–22:00<br>Sábado 10:00–23:00<br>Domingo cerrado</p>
+      </div>
+      <div>
+        <h3>Visítanos</h3>
+        <p data-brand="address">Calle Ángel Janos, 10<br>Vigo</p>
+      </div>
+      <nav aria-label="Pie de página">
+        <h3>Explora</h3>
+        <p><a href="#estrella">Açaí</a><br><a href="#carta">Carta</a><br><a href="#sobre">Sobre Bloom</a><br><a href="#local">El local</a></p>
+      </nav>
+    </div>
+    <div class="footer__flag" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="footer__row">
+      <p>© <span data-year>2026</span> Bloom Coffee Brunch Brasil</p>
+      <p><a href="#top">Volver arriba ↑</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
