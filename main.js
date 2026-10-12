@@ -45,7 +45,7 @@
     setTimeout(function () { els.forEach(function (el) { el.classList.add("is-in"); }); }, 6000);
   }
 
-  /* ---------- Journey: scroll-scrubbed fly-through over real photos ---------- */
+  /* ---------- Journey: scroll-scrubbed fly-through into illustrated scenes ---------- */
   function initJourney() {
     var root = $(".journey"); if (!root) return;
     var scenes = $$(".scene", root); if (!scenes.length) return;
@@ -71,7 +71,11 @@
     // Zoom origin = centre of the photo, so the camera "enters" the picture
     function measure() {
       data.forEach(function (s) {
-        if (!s.shot) return;
+        if (!s.shot) {  // illustrated scene: origin comes from data-ox / data-oy
+          s.el.style.setProperty("--ox", (s.el.getAttribute("data-ox") || 50) + "%");
+          s.el.style.setProperty("--oy", (s.el.getAttribute("data-oy") || 50) + "%");
+          return;
+        }
         var cx = s.shot.offsetLeft + s.shot.offsetWidth / 2;
         var cy = s.shot.offsetTop + s.shot.offsetHeight / 2;
         // offsetLeft/Top ignore the translate(-50%,-50%) on .shot
@@ -102,20 +106,21 @@
           op = 0;
         } else if (t < 0) {                      // emerging from behind
           var e = ease((t + ENTER) / ENTER);
-          z = 0.86 + 0.14 * e; op = e;
+          z = 0.82 + 0.18 * e; op = e;
         } else if (!last && t > EXIT) {          // diving into the photo
           var x = (t - EXIT) / (1 - EXIT);
-          z = 1.05 + 1.9 * x * x;
+          z = 1.06 + 3.6 * x * x;
           op = 1 - clamp((x - 0.3) / 0.7, 0, 1);
         } else {                                 // hold, slow drift
-          z = 1 + 0.05 * clamp(t, 0, 1); op = 1;
+          z = 1 + 0.06 * clamp(t, 0, 1); op = 1;
         }
         if (calm) z = 1;
         s.el.style.opacity = op.toFixed(3);
         s.el.style.visibility = op <= 0.001 ? "hidden" : "visible";
         if (op > 0.001) {
           s.layers.forEach(function (l) {
-            var sc = 1 + (z - 1) * (l.d ? 1.25 : 0.55);
+            // deeper layers (foreground) travel faster: parallax inside the scene
+            var sc = 1 + (z - 1) * (1 + 0.35 * l.d);
             l.el.style.transform = "scale(" + sc.toFixed(4) + ")";
           });
         }

@@ -19,9 +19,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap">
   <link rel="preload" as="image" href="assets/img/acai-cerezas.webp">
-  <link rel="stylesheet" href="styles.css?v=20261009b">
-  <script defer src="lib/manifest.js?v=20261009b"></script>
-  <script defer src="main.js?v=20261009b"></script>
+  <link rel="stylesheet" href="styles.css?v=20261012">
+  <script defer src="lib/manifest.js?v=20261012"></script>
+  <script defer src="main.js?v=20261012"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -47,7 +47,39 @@
       <pattern id="ondas" width="120" height="60" patternUnits="userSpaceOnUse">
         <path d="M0 15c20 0 20-15 40-15s20 15 40 15 20-15 40-15M0 45c20 0 20-15 40-15s20 15 40 15 20-15 40-15" fill="none" stroke="currentColor" stroke-width="3"/>
       </pattern>
+      <pattern id="gingham" width="16" height="16" patternUnits="userSpaceOnUse">
+        <rect width="16" height="16" fill="#f4e6dc"/>
+        <rect width="8" height="16" fill="#b8323f" opacity=".75"/>
+        <rect width="16" height="8" fill="#b8323f" opacity=".75"/>
+        <rect width="8" height="8" fill="#2a1d1f" opacity=".7"/>
+      </pattern>
+      <radialGradient id="fur" cx=".4" cy=".35" r=".75">
+        <stop offset="0" stop-color="#f6b8c6"/><stop offset="1" stop-color="#e48ea3"/>
+      </radialGradient>
+      <pattern id="ondas-verde" width="120" height="60" patternUnits="userSpaceOnUse">
+        <path d="M0 15c20 0 20-15 40-15s20 15 40 15 20-15 40-15M0 45c20 0 20-15 40-15s20 15 40 15 20-15 40-15" fill="none" stroke="#0f7c45" stroke-width="9"/>
+      </pattern>
     </defs>
+    <!-- Bloom bear — pink plush, cream muzzle, pink nose, gingham bow tie -->
+    <symbol id="bear" viewBox="0 0 220 240">
+      <ellipse cx="110" cy="214" rx="82" ry="52" fill="url(#fur)"/>
+      <ellipse cx="110" cy="222" rx="46" ry="34" fill="#f7cdd7"/>
+      <circle cx="44" cy="52" r="36" fill="url(#fur)"/><circle cx="176" cy="52" r="36" fill="url(#fur)"/>
+      <circle cx="44" cy="52" r="19" fill="#f7cdd7"/><circle cx="176" cy="52" r="19" fill="#f7cdd7"/>
+      <circle cx="110" cy="104" r="82" fill="url(#fur)"/>
+      <ellipse cx="110" cy="134" rx="40" ry="31" fill="#fff4ec"/>
+      <ellipse cx="110" cy="120" rx="17" ry="13" fill="#e0607e"/>
+      <ellipse cx="105" cy="116" rx="5" ry="3" fill="#ffffff" opacity=".6"/>
+      <path d="M110 133v10M110 143c-8 8-18 7-22 1M110 143c8 8 18 7 22 1" stroke="#3a2628" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <circle cx="78" cy="96" r="8.5" fill="#2a1d1f"/><circle cx="142" cy="96" r="8.5" fill="#2a1d1f"/>
+      <circle cx="81" cy="93" r="2.6" fill="#fff"/><circle cx="145" cy="93" r="2.6" fill="#fff"/>
+      <ellipse cx="62" cy="128" rx="13" ry="8" fill="#f06f8e" opacity=".35"/><ellipse cx="158" cy="128" rx="13" ry="8" fill="#f06f8e" opacity=".35"/>
+      <path d="M110 186l-46-22v48zM110 186l46-22v48z" fill="url(#gingham)" stroke="#8e2533" stroke-width="2"/>
+      <rect x="98" y="175" width="24" height="23" rx="8" fill="#9e2b38"/>
+    </symbol>
+    <symbol id="bear-head" viewBox="0 0 220 190">
+      <use href="#bear"/>
+    </symbol>
   </svg>
 
   <!-- Splash: hidden by JS on load, and by a CSS animation at 4.5s as a safety net -->
@@ -143,72 +175,224 @@
       </div>
     </section>
 
-    <!-- ===================== PASEO (scroll-scrubbed fly-through, real photos) ===================== -->
-    <section class="journey" id="paseo" aria-label="Un paseo por Bloom">
+    <!-- ===================== PASEO (scroll-scrubbed fly-through) ===================== -->
+    <section class="journey" id="paseo" aria-label="Un paseo ilustrado por Bloom Coffee Brunch Brasil">
       <div class="journey__intro">
         <p class="eyebrow">Entra con nosotros</p>
-        <h2>De la terraza a tu taza.</h2>
-        <p>Baja despacio: la cámara entra en cada momento.</p>
+        <h2>Un paseo por Bloom, de la terraza a tu taza.</h2>
+        <p>Desliza hacia abajo y la cámara entra.</p>
       </div>
       <div class="journey__stage">
 
-        <article class="scene scene--l">
-          <div class="layer layer--bg" data-depth="0" style="background-image:url(assets/img/blur-terraza-1.webp)"></div>
-          <div class="layer" data-depth="1"><figure class="shot shot--land"><img src="assets/img/terraza-1.webp" alt="Terraza de Bloom con toldo negro y mesas de madera" width="650" height="380"></figure></div>
+        <!-- Escena 1 — La terraza -->
+        <article class="scene scene--l" data-ox="50" data-oy="60">
+          <div class="scene__art">
+          <svg class="layer" data-depth="0" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs><linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3d6fd1"/><stop offset=".65" stop-color="#9cc2f0"/><stop offset="1" stop-color="#fff6e5"/></linearGradient></defs>
+            <rect width="1600" height="900" fill="url(#sky1)"/>
+            <circle cx="1300" cy="170" r="90" fill="#ffd23f"/><circle cx="1300" cy="170" r="140" fill="#ffd23f" opacity=".2"/>
+            <g fill="#ece2d6"><rect x="0" y="150" width="290" height="680"/><rect x="1310" y="260" width="290" height="570"/></g>
+            <g fill="#c6d4e3"><rect x="40" y="200" width="70" height="90"/><rect x="160" y="200" width="70" height="90"/><rect x="40" y="340" width="70" height="90"/><rect x="160" y="340" width="70" height="90"/><rect x="1360" y="310" width="70" height="90"/><rect x="1480" y="310" width="70" height="90"/></g>
+            <rect x="290" y="80" width="1020" height="740" fill="#f3ebe1"/>
+            <g fill="#c6d4e3"><rect x="370" y="120" width="110" height="120"/><rect x="560" y="120" width="110" height="120"/><rect x="930" y="120" width="110" height="120"/><rect x="1120" y="120" width="110" height="120"/></g>
+          </svg>
+          <svg class="layer" data-depth="1" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect x="330" y="290" width="940" height="60" fill="#c8553d"/>
+            <rect x="360" y="380" width="880" height="440" fill="#26262a"/>
+            <rect x="380" y="400" width="400" height="300" fill="#ffe2b8"/>
+            <rect x="430" y="430" width="140" height="80" rx="4" fill="#26262a"/><rect x="440" y="440" width="120" height="60" fill="#e48ea3"/>
+            <rect x="420" y="600" width="320" height="100" fill="#f0a35c"/>
+            <path d="M440 600v100M480 600v100M520 600v100M560 600v100M600 600v100M640 600v100M680 600v100M720 600v100" stroke="#e48a4a" stroke-width="10"/>
+            <rect x="820" y="400" width="150" height="420" fill="#3d3d42"/><rect x="835" y="415" width="120" height="390" fill="#f4dcc4" opacity=".75"/>
+            <rect x="1000" y="400" width="220" height="300" fill="#e7eef1"/>
+            <text x="580" y="335" text-anchor="middle" font-family="Bricolage Grotesque, Arial, sans-serif" font-size="44" font-weight="800" fill="#fff6e5">BLOOM</text>
+            <path d="M780 300h520l40 90H740z" fill="#1d1d20"/>
+            <path d="M745 388h595" stroke="#9be15d" stroke-width="5"/>
+            <path d="M1300 390v430" stroke="#1d1d20" stroke-width="8"/>
+            <rect x="480" y="740" width="200" height="16" fill="#a2754d"/><path d="M580 756v70" stroke="#26262a" stroke-width="8"/>
+            <rect x="980" y="740" width="200" height="16" fill="#a2754d"/><path d="M1080 756v70" stroke="#26262a" stroke-width="8"/>
+            <g fill="none" stroke="#fbfaf7" stroke-width="9" stroke-linecap="round"><path d="M430 700v120M430 760h50v60"/><path d="M730 700v120M730 760h-50v60"/><path d="M930 700v120M930 760h50v60"/><path d="M1230 700v120M1230 760h-50v60"/></g>
+            <path d="M560 740c0-20 10-34 20-40 10 6 20 20 20 40zM1060 740c0-20 10-34 20-40 10 6 20 20 20 40z" fill="#0b6b3a"/>
+            <rect x="290" y="816" width="1020" height="84" fill="#d9d2cc"/>
+          </svg>
+          <svg class="layer" data-depth="2" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <path d="M-40 900c20-220 120-340 260-390-60 90-70 210-50 390z" fill="#0b6b3a"/>
+            <path d="M40 900c50-150 120-230 230-270-50 70-60 170-60 270z" fill="#2f9a5a"/>
+            <path d="M1640 900c-20-220-120-340-260-390 60 90 70 210 50 390z" fill="#0b6b3a"/>
+            <path d="M1560 900c-50-150-120-230-230-270 50 70 60 170 60 270z" fill="#2f9a5a"/>
+            <g fill="#ffd23f"><circle cx="160" cy="610" r="16"/><circle cx="1440" cy="610" r="16"/></g>
+          </svg>
+          </div>
           <div class="scene__copy">
             <p class="scene__num">01 · A terraza</p>
             <h2>Empieza en la terraza.</h2>
-            <p>Toldo negro, sillas blancas y mesas de madera. Fuera o dentro, tú eliges.</p>
+            <p>Toldo negro, sillas blancas y mesas de madera. Puedes quedarte fuera o pasar dentro.</p>
           </div>
         </article>
 
-        <article class="scene scene--r">
-          <div class="layer layer--bg" data-depth="0" style="background-image:url(assets/img/blur-barra-logo.webp)"></div>
-          <div class="layer" data-depth="1"><figure class="shot shot--land shot--small"><img src="assets/img/barra-logo.webp" alt="La barra rosa de Bloom con el rótulo Coffee Bloom Brunch" width="318" height="240"></figure></div>
+        <!-- Escena 2 — La barra -->
+        <article class="scene scene--r" data-ox="50" data-oy="55">
+          <div class="scene__art">
+          <svg class="layer" data-depth="0" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs><pattern id="hedge" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="40" fill="#1f5133"/><circle cx="10" cy="10" r="9" fill="#2f7a49"/><circle cx="30" cy="22" r="10" fill="#246240"/><circle cx="14" cy="32" r="7" fill="#3f9a5e"/></pattern></defs>
+            <rect width="1600" height="900" fill="#f5efe8"/>
+            <rect width="1600" height="150" fill="url(#hedge)"/>
+            <rect y="150" width="1600" height="110" fill="#ffffff"/>
+            <text x="800" y="225" text-anchor="middle" font-family="Bricolage Grotesque, Arial, sans-serif" font-size="46" font-weight="800" fill="#c8323f" letter-spacing="4">COFFEE  ·  BLOOM  ·  BRUNCH</text>
+            <rect x="0" y="780" width="1600" height="120" fill="#cfc8c0"/>
+          </svg>
+          <svg class="layer" data-depth="1" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <pattern id="slats" width="34" height="400" patternUnits="userSpaceOnUse"><rect width="34" height="400" fill="#e59aa5"/><rect width="20" height="400" fill="#f0b7c0"/><rect x="20" width="3" height="400" fill="#c97f8b"/></pattern>
+              <linearGradient id="led" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff5a5a" stop-opacity=".8"/><stop offset="1" stop-color="#ff5a5a" stop-opacity="0"/></linearGradient>
+            </defs>
+            <rect x="330" y="380" width="940" height="150" rx="6" fill="#e7f0ee" opacity=".92" stroke="#b9c5c2" stroke-width="4"/>
+            <rect x="330" y="470" width="940" height="8" fill="#b9c5c2"/>
+            <g fill="#e2a65a"><ellipse cx="430" cy="450" rx="50" ry="18"/><ellipse cx="560" cy="452" rx="44" ry="16"/><ellipse cx="1040" cy="450" rx="50" ry="18"/><ellipse cx="1170" cy="452" rx="44" ry="16"/></g>
+            <g fill="#f3b5c3"><circle cx="690" cy="448" r="18"/><circle cx="730" cy="448" r="18"/></g>
+            <g fill="#7b4a2e"><circle cx="880" cy="448" r="18"/><circle cx="920" cy="448" r="18"/></g>
+            <rect x="290" y="530" width="1020" height="28" rx="6" fill="#fbfaf7"/>
+            <rect x="300" y="558" width="1000" height="250" fill="url(#slats)"/>
+            <rect x="300" y="558" width="1000" height="70" fill="url(#led)"/>
+            <rect x="290" y="808" width="1020" height="20" fill="#8a4b34"/>
+          </svg>
+          <svg class="layer" data-depth="2" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <ellipse cx="800" cy="528" rx="70" ry="14" fill="#efe7df"/>
+            <path d="M750 470h100l-10 58h-80z" fill="#fbfaf7"/>
+            <ellipse cx="800" cy="470" rx="50" ry="12" fill="#c58e5d"/>
+            <path d="M800 476c-12-8-18-14-14-18 3-4 10-3 14 2 4-5 11-6 14-2 4 4-2 10-14 18z" fill="#f6e3c4"/>
+            <g class="steam" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" opacity=".9"><path d="M785 440c-14-20 14-34 0-54s14-34 0-54"/><path d="M818 436c-14-20 14-34 0-54s14-34 0-54"/></g>
+            <path d="M160 900V700M220 900V700" stroke="#3d2c22" stroke-width="16"/><ellipse cx="190" cy="690" rx="70" ry="22" fill="#6b4a36"/>
+            <path d="M1430 900c-10-160 0-280 30-360M1470 900c0-140 30-260 80-330M1400 900c-30-120-70-200-120-250" stroke="#2f7a49" stroke-width="22" fill="none" stroke-linecap="round"/>
+            <rect x="1360" y="820" width="160" height="80" fill="#e8ddd5"/>
+          </svg>
+          </div>
           <div class="scene__copy">
             <p class="scene__num">02 · O balcão</p>
             <h2>La barra rosa.</h2>
-            <p>Listones rosas, luz cálida y la vitrina a la vista. Aquí se pide y se charla.</p>
+            <p>Listones de madera en rosa, luz cálida por debajo y la vitrina a la vista. Aquí se pide y se charla.</p>
           </div>
         </article>
 
-        <article class="scene scene--l">
-          <div class="layer layer--bg" data-depth="0" style="background-image:url(assets/img/blur-brunch-tosta.webp)"></div>
-          <div class="layer" data-depth="1"><figure class="shot shot--square"><img src="assets/img/brunch-tosta.webp" alt="Mesa de Bloom con latte, zumo de naranja y tosta de jamón serrano con tomate" width="715" height="730" loading="lazy"></figure></div>
+        <!-- Escena 3 — La mesa -->
+        <article class="scene scene--l" data-ox="50" data-oy="50">
+          <div class="scene__art">
+          <svg class="layer" data-depth="0" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs><pattern id="wood" width="1600" height="80" patternUnits="userSpaceOnUse"><rect width="1600" height="80" fill="#c69c74"/><rect y="77" width="1600" height="3" fill="#a77f5a"/></pattern></defs>
+            <rect width="1600" height="900" fill="url(#wood)"/>
+            <rect x="320" y="110" width="960" height="680" rx="16" fill="#fbfaf7"/>
+          </svg>
+          <svg class="layer" data-depth="1" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g transform="translate(480 290)">
+              <ellipse rx="150" ry="110" fill="#e8e2da"/><ellipse rx="130" ry="92" fill="#ffffff"/>
+              <rect x="-100" y="-40" width="200" height="80" rx="30" fill="#c9884e"/>
+              <rect x="-90" y="-32" width="180" height="64" rx="26" fill="#a6c85a"/>
+              <g fill="#7ea33d"><ellipse cx="-50" cy="0" rx="22" ry="12"/><ellipse cx="0" cy="-6" rx="22" ry="12"/><ellipse cx="50" cy="2" rx="22" ry="12"/></g>
+              <path d="M-80 70l160-30" stroke="#d4af37" stroke-width="8" stroke-linecap="round"/>
+            </g>
+            <g transform="translate(1110 300)">
+              <circle r="110" fill="#4f86c6"/><circle r="90" fill="#6a9bd4"/>
+              <circle r="64" fill="#fbfaf7"/><circle r="52" fill="#c58e5d"/>
+              <path d="M0 22c-24-16-34-28-28-38 6-10 20-8 28 4 8-12 22-14 28-4 6 10-4 22-28 38z" fill="#f6e3c4"/>
+              <path d="M62 -8h26a18 18 0 0 1 0 36H62" fill="none" stroke="#fbfaf7" stroke-width="12"/>
+            </g>
+            <g transform="translate(470 630)"><circle r="58" fill="#f1e6c8"/><circle r="48" fill="#f5a623"/><circle r="34" fill="#f7bc4a"/></g>
+            <g transform="translate(1120 630)"><circle r="62" fill="#d9b88f"/><circle r="50" fill="#b98d5c"/><g fill="#2f9a5a"><ellipse cx="0" cy="-22" rx="12" ry="26"/><ellipse cx="22" cy="0" rx="26" ry="12"/><ellipse cx="0" cy="22" rx="12" ry="26"/><ellipse cx="-22" cy="0" rx="26" ry="12"/></g><circle r="10" fill="#0b6b3a"/></g>
+          </svg>
+          <svg class="layer" data-depth="2" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <circle cx="800" cy="460" r="170" fill="#efebe5"/>
+            <circle cx="800" cy="460" r="125" fill="#4b1d4a"/>
+            <path d="M690 430c10-60 70-100 130-90s100 60 90 110-60 90-120 80-110-40-100-100z" fill="#fff7e8"/>
+            <path d="M720 410c40 10 60 50 120 40s70-40 70-40" stroke="#c9d47a" stroke-width="10" fill="none" stroke-linecap="round"/>
+            <path d="M720 470c30 20 90 30 160-10" stroke="#e98aa0" stroke-width="8" fill="none" stroke-linecap="round"/>
+            <g fill="#d9a85e"><circle cx="760" cy="420" r="6"/><circle cx="780" cy="440" r="5"/><circle cx="800" cy="425" r="6"/><circle cx="745" cy="445" r="5"/><circle cx="820" cy="445" r="5"/></g>
+            <g fill="#e0384f"><path d="M840 470c0-24 18-34 30-30 14 4 18 22 6 38-10 12-36 16-36-8z"/><path d="M880 420c4-20 22-26 32-20 10 8 10 24-4 34-12 8-32 6-28-14z"/></g>
+            <path d="M-20 260c120-40 200-20 260 40-90-10-170 0-260 30zM1620 640c-120 40-200 20-260-40 90 10 170 0 260-30z" fill="#0b6b3a"/>
+            <path d="M-20 120c100-10 170 20 210 80-80-20-150-30-210-20zM1620 780c-100 10-170-20-210-80 80 20 150 30 210 20z" fill="#2f9a5a"/>
+          </svg>
+          </div>
           <div class="scene__copy">
             <p class="scene__num">03 · A mesa</p>
-            <h2>Brunch y tostas.</h2>
-            <p>Café con leche, zumo de naranja y una tosta recién hecha. Mesa puesta.</p>
+            <h2>La mesa se llena.</h2>
+            <p>Tostada de aguacate, zumo de naranja, un latte con corazón y, en el centro, el açaí bowl.</p>
           </div>
         </article>
 
-        <article class="scene scene--r">
-          <div class="layer layer--bg" data-depth="0" style="background-image:url(assets/img/blur-acai-cerezas.webp)"></div>
-          <div class="layer" data-depth="1"><figure class="shot shot--square"><img src="assets/img/acai-cerezas.webp" alt="Copa de açaí con nata, fresas y cerezas" width="712" height="820" loading="lazy"></figure></div>
+        <!-- Escena 4 — El osito -->
+        <article class="scene scene--r" data-ox="50" data-oy="44">
+          <div class="scene__art">
+          <svg class="layer" data-depth="0" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="1600" height="900" fill="#f5efe8"/>
+            <rect x="380" y="70" width="840" height="560" fill="#7b5a44"/>
+            <rect x="400" y="90" width="800" height="520" fill="#d9e6f2"/>
+            <g fill="#c2d2e2"><rect x="440" y="140" width="160" height="300"/><rect x="980" y="120" width="180" height="330"/></g>
+            <rect x="400" y="470" width="800" height="140" fill="#9fc79a"/>
+            <g fill="#e48ea3" opacity=".75"><circle cx="520" cy="120" r="8"/><circle cx="700" cy="200" r="7"/><circle cx="900" cy="140" r="9"/><circle cx="1100" cy="300" r="7"/></g>
+            <g fill="#4f86c6" opacity=".6"><circle cx="600" cy="160" r="7"/><circle cx="820" cy="300" r="8"/><circle cx="1000" cy="420" r="7"/></g>
+            <rect x="0" y="720" width="1600" height="180" fill="#cfc8c0"/>
+          </svg>
+          <svg class="layer" data-depth="1" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <path d="M600 760V470c0-60 60-100 200-100s200 40 200 100v290" fill="none" stroke="#1f4a3a" stroke-width="40" stroke-linecap="round"/>
+            <use href="#bear" x="590" y="230" width="420" height="460"/>
+          </svg>
+          <svg class="layer" data-depth="2" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <path d="M300 720h1000l80 180H220z" fill="#fbfaf7"/>
+            <ellipse cx="800" cy="790" rx="110" ry="26" fill="#efe7df"/>
+            <path d="M720 720h160l-14 70h-132z" fill="#ffffff"/>
+            <ellipse cx="800" cy="720" rx="80" ry="18" fill="#c58e5d"/>
+            <path d="M800 728c-18-10-26-18-22-24 4-6 14-4 22 4 8-8 18-10 22-4 4 6-4 14-22 24z" fill="#f6e3c4"/>
+            <text x="800" y="770" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#c9a0a8">Bloom</text>
+            <g class="steam" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" opacity=".9"><path d="M780 690c-14-20 14-34 0-54s14-34 0-54"/><path d="M822 690c-14-20 14-34 0-54s14-34 0-54"/></g>
+            <g stroke="#2f7a49" stroke-width="14" fill="none" stroke-linecap="round"><path d="M200 900V60M250 900V120M1400 900V80M1360 900V160"/></g>
+            <g fill="#3f9a5e"><path d="M200 200c-60-20-100 0-120 30 40-10 80-12 120-30zM250 300c60-20 100 0 120 30-40-10-80-12-120-30zM200 420c-60-20-100 0-120 30 40-10 80-12 120-30zM1400 220c60-20 100 0 120 30-40-10-80-12-120-30zM1360 340c-60-20-100 0-120 30 40-10 80-12 120-30z"/></g>
+          </svg>
+          </div>
           <div class="scene__copy">
-            <p class="scene__num">04 · O açaí</p>
-            <h2>Morado, frío y generoso.</h2>
-            <p>El sabor amazónico que más se pide en Bloom.</p>
+            <p class="scene__num">04 · O ursinho</p>
+            <h2>Saluda al osito.</h2>
+            <p>El osito es parte de la familia Bloom. Búscalo en nuestra imagen y en el local.</p>
           </div>
         </article>
 
-        <article class="scene scene--c scene--last">
-          <div class="layer layer--bg" data-depth="0" style="background-image:url(assets/img/blur-cafe-buen-dia.webp)"></div>
-          <div class="layer" data-depth="1"><figure class="shot shot--tall"><img src="assets/img/cafe-buen-dia.webp" alt="Café con espuma azul y el mensaje Buen día dibujado, junto a un jarrón de flores" width="730" height="1280" loading="lazy"></figure></div>
+        <!-- Escena 5 — El café -->
+        <article class="scene scene--c scene--last" data-ox="50" data-oy="50">
+          <div class="scene__art">
+          <svg class="layer" data-depth="0" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="1600" height="900" fill="#0b6b3a"/>
+            <rect width="1600" height="900" fill="url(#ondas-verde)"/>
+            <g fill="#ffd23f"><circle cx="180" cy="160" r="70"/><circle cx="1420" cy="740" r="100"/></g>
+          </svg>
+          <svg class="layer" data-depth="1" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <circle cx="800" cy="450" r="290" fill="#efe7df"/>
+            <circle cx="800" cy="450" r="250" fill="#fbfaf7"/>
+            <path d="M1030 400h80a70 70 0 0 1 0 140h-80" fill="none" stroke="#fbfaf7" stroke-width="40"/>
+            <circle cx="800" cy="450" r="205" fill="#ffffff" stroke="#efe7df" stroke-width="6"/>
+            <circle cx="800" cy="450" r="178" fill="#a8703f"/>
+            <circle cx="800" cy="450" r="150" fill="#c58e5d"/>
+            <path d="M800 570c-100-66-140-118-118-170 18-42 76-50 118 4 42-54 100-46 118-4 22 52-18 104-118 170z" fill="#f6e3c4"/>
+            <path d="M800 528c-54-36-78-66-66-94 10-22 42-28 66 2 24-30 56-24 66-2 12 28-12 58-66 94z" fill="#c58e5d"/>
+            <path d="M800 504c-28-18-40-34-34-48 6-12 22-14 34 0 12-14 28-12 34 0 6 14-6 30-34 48z" fill="#f6e3c4"/>
+          </svg>
+          <svg class="layer" data-depth="2" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <g class="steam" fill="none" stroke="#fff6e5" stroke-width="8" stroke-linecap="round" opacity=".6"><path d="M760 250c-24-40 24-60 0-100s24-60 0-100"/><path d="M850 260c-24-40 24-60 0-100s24-60 0-100"/></g>
+            <use href="#bear-head" x="1180" y="560" width="300" height="260"/>
+          </svg>
+          </div>
           <div class="scene__copy">
             <p class="scene__num">05 · O cafezinho</p>
             <h2>Y quedarse un rato.</h2>
-            <p>Un café con mensaje y la mesa es tuya. Seja bem-vindo.</p>
+            <p>Un café con corazón y una mesa para ti. Seja bem-vindo.</p>
             <a class="btn btn--rose" href="#carta">Ver la carta</a>
           </div>
         </article>
 
         <ol class="journey__rail" aria-hidden="true">
-          <li>Terraza</li><li>Barra</li><li>Mesa</li><li>Açaí</li><li>Café</li>
+          <li>Terraza</li><li>Barra</li><li>Mesa</li><li>Osito</li><li>Café</li>
         </ol>
         <div class="journey__bar" aria-hidden="true"><span></span></div>
       </div>
     </section>
+
 
     <!-- ===================== SABORES DE BRASIL ===================== -->
     <section class="brasil" aria-labelledby="brasil-title">

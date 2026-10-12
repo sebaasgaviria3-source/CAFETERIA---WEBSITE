@@ -184,6 +184,14 @@ em { font-style: italic; color: var(--rose); font-weight: 500; }
 /* Fallback (no JS): scenes stack as normal blocks */
 .scene { position: relative; height: 90vh; min-height: 560px; overflow: hidden; }
 .layer { position: absolute; inset: 0; }
+svg.layer { width: 100%; height: 100%; }
+.scene__art { position: absolute; inset: 0; overflow: hidden; }
+/* Phones & tablets held upright: the illustration becomes a framed window
+   at the top so the whole scene stays readable; the camera still dives in */
+@media (max-width: 900px) and (orientation: portrait) {
+  .journey.is-live .scene { background: var(--cocoa); }
+  .journey.is-live .scene__art { inset: auto 12px auto 12px; top: calc(var(--nav-h) + 14px); height: 50svh; border-radius: 24px; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6); }
+}
 .layer--bg { background-size: cover; background-position: center; }
 .layer--bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(59,35,33,.25), rgba(59,35,33,.55)); }
 .shot { position: absolute; margin: 0; left: var(--cx, 50%); top: 46%; transform: translate(-50%, -50%); border-radius: var(--r-md); overflow: hidden; border: 6px solid #fff; background: #fff; box-shadow: 0 40px 80px -30px rgba(0,0,0,.6); }
@@ -195,8 +203,11 @@ em { font-style: italic; color: var(--rose); font-weight: 500; }
 .scene--l .shot { --cx: 62%; }
 .scene--r .shot { --cx: 38%; }
 .journey__rail, .journey__bar { display: none; }
+.steam path { animation: steam 3s ease-in-out infinite; }
+.steam path:nth-child(2) { animation-delay: .8s; }
+@keyframes steam { 0%,100% { opacity: .2; transform: translateY(8px); } 50% { opacity: 1; transform: translateY(-6px); } }
 
-.scene__copy { position: absolute; z-index: 10; left: var(--gutter); top: 50%; transform: translateY(-50%); max-width: 380px; padding: 26px 28px; border-radius: var(--r-md); background: rgba(255, 250, 246, .96); color: var(--cocoa); box-shadow: var(--shadow); }
+.scene__copy { position: absolute; z-index: 10; left: var(--gutter); bottom: 90px; max-width: 400px; padding: 26px 28px; border-radius: var(--r-md); background: rgba(255, 250, 246, .96); color: var(--cocoa); box-shadow: var(--shadow); }
 .scene--r .scene__copy { left: auto; right: var(--gutter); }
 .scene--c .scene__copy { left: auto; right: var(--gutter); }
 .scene__copy h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-bottom: 10px; }
