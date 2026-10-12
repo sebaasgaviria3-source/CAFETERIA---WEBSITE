@@ -1,0 +1,11 @@
+# Bloom stock panel
+Options -Indexes
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
+# lib.php is include-only
+<Files "lib.php">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</Files>

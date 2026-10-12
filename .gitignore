@@ -1,0 +1,4 @@
+# Private runtime data of the stock panel (password hash, inventory)
+admin/data/*.php
+admin/data/*.tmp
+admin/data/.lock
