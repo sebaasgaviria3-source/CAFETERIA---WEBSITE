@@ -23,10 +23,10 @@
   <link rel="preload" href="assets/fonts/gloock-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="assets/img/hero-barra-1195.webp" imagesrcset="assets/img/hero-barra-800.webp 800w, assets/img/hero-barra-1195.webp 1195w" imagesizes="100vw">
-  <link rel="stylesheet" href="tokens.css?v=20261014d">
-  <link rel="stylesheet" href="styles.css?v=20261014d">
+  <link rel="stylesheet" href="tokens.css?v=20261014e">
+  <link rel="stylesheet" href="styles.css?v=20261014e">
   <script defer src="lib/manifest.js?v=20261014"></script>
-  <script defer src="main.js?v=20261014d"></script>
+  <script defer src="main.js?v=20261014e"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -144,74 +144,113 @@
         </div>
         <div class="star__ctas">
           <a class="btn btn--rose" href="#carta">Ver toda la carta</a>
-          <a class="star__next" href="#paseo">Entra en Bloom <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="star__next" href="#combinaciones">Ver las combinaciones <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
+      </div>
+    </section>
+
+    <!-- PROVISIONAL: the six combinations below (names, toppings read from the
+         client's photos, and prices) are placeholders the client asked for so
+         the menu looks complete. Replace with the café's real data. The intro
+         above (Açaí 7,90 € and its extras) is the verified menu. -->
+    <section class="bowls" id="combinaciones" aria-labelledby="bowls-title">
+      <header class="bowls__head reveal">
+        <p class="menu__eyebrow">Carta de açaí</p>
+        <h2 id="bowls-title">Combinaciones de la casa.</h2>
+        <p>Todas sobre nuestra base de açaí cremoso. Elige tu favorita o créala a tu manera con los extras.</p>
+      </header>
+      <div class="bowls__layout">
+        <article class="bowl-sig reveal" aria-labelledby="sig-title">
+          <div class="bowl-sig__plate"><img src="assets/img/acai-estrella.webp" alt="Bowl de açaí con carambola, pitahaya en forma de estrella, granola, macadamia, coco rallado y moras" width="398" height="398" loading="lazy" decoding="async"></div>
+          <div class="bowl-sig__text">
+            <p class="bowl-sig__badge">Firma de la casa</p>
+            <div class="carte__line"><h3 class="bowl-sig__name" id="sig-title">Estrella Bloom</h3><span class="carte__dots" aria-hidden="true"></span><span class="price bowl-sig__price">10,50 €</span></div>
+            <ul class="bowl-sig__ing">
+              <li>Carambola</li><li>Pitahaya en estrellas</li><li>Granola</li><li>Macadamia</li><li>Coco rallado</li><li>Moras</li>
+            </ul>
+          </div>
+        </article>
+        <div class="bowls__groups">
+          <h3 class="carte__group reveal"><span>Tropicales</span></h3>
+          <ul class="bowl-list reveal">
+            <li class="bowl-row">
+              <span class="bowl-row__plate"><img src="assets/img/acai-mango.webp" alt="Bowl de açaí con mango, coco tostado, nuez pecana, granada y semillas de cáñamo" width="398" height="398" loading="lazy" decoding="async"></span>
+              <div class="bowl-row__text"><div class="carte__line"><h4 class="carte__name">Tropical Bloom</h4><span class="carte__dots" aria-hidden="true"></span><span class="price">9,50 €</span></div><p class="carte__desc">Mango, coco tostado, nuez pecana, granada y semillas de cáñamo.</p></div>
+            </li>
+            <li class="bowl-row">
+              <span class="bowl-row__plate"><img src="assets/img/acai-pitaya.webp" alt="Bowl de açaí con pitahaya, bayas de goji, matcha, pipas de calabaza y frutos secos" width="281" height="281" loading="lazy" decoding="async"></span>
+              <div class="bowl-row__text"><div class="carte__line"><h4 class="carte__name">Pitaya Zen</h4><span class="carte__dots" aria-hidden="true"></span><span class="price">9,80 €</span></div><p class="carte__desc">Pitahaya, bayas de goji, matcha, pipas de calabaza y frutos secos.</p></div>
+            </li>
+          </ul>
+          <h3 class="carte__group reveal"><span>Frutales</span></h3>
+          <ul class="bowl-list reveal">
+            <li class="bowl-row">
+              <span class="bowl-row__plate"><img src="assets/img/acai-huerto.webp" alt="Bowl de açaí con manzana verde, granola, pipas de calabaza, cerezas, ciruelas y arándanos" width="297" height="297" loading="lazy" decoding="async"></span>
+              <div class="bowl-row__text"><div class="carte__line"><h4 class="carte__name">Huerto Bloom</h4><span class="carte__dots" aria-hidden="true"></span><span class="price">9,20 €</span></div><p class="carte__desc">Manzana verde, granola, pipas de calabaza, cerezas, ciruela y arándanos.</p></div>
+            </li>
+            <li class="bowl-row">
+              <span class="bowl-row__plate"><img src="assets/img/acai-atardecer.webp" alt="Bowl de açaí con melocotón, granola, orejones, almendra laminada, bayas de goji y chía" width="393" height="393" loading="lazy" decoding="async"></span>
+              <div class="bowl-row__text"><div class="carte__line"><h4 class="carte__name">Atardecer</h4><span class="carte__dots" aria-hidden="true"></span><span class="price">9,20 €</span></div><p class="carte__desc">Melocotón, granola, orejones, almendra laminada, bayas de goji y chía.</p></div>
+            </li>
+          </ul>
+          <h3 class="carte__group reveal"><span>Cacao</span></h3>
+          <ul class="bowl-list reveal">
+            <li class="bowl-row">
+              <span class="bowl-row__plate"><img src="assets/img/acai-cacao.webp" alt="Bowl de açaí con higos, nueces, plátano con crema de cacahuete, nibs de cacao y cacao en polvo" width="393" height="393" loading="lazy" decoding="async"></span>
+              <div class="bowl-row__text"><div class="carte__line"><h4 class="carte__name">Cacao &amp; Higo</h4><span class="carte__dots" aria-hidden="true"></span><span class="price">9,90 €</span></div><p class="carte__desc">Higos, nueces, plátano con crema de cacahuete, nibs de cacao y cacao en polvo.</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="bowls__foot reveal">
+        <p>¿A tu manera? Parte del <strong>açaí clásico (7,90 €)</strong> y súmale los extras que quieras.</p>
+        <a class="star__next" href="#paseo">Entra en Bloom <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
     </section>
     </div>
 
     <!-- ===================== PASEO: each real photo opens into the next ===================== -->
-    <section class="journey" id="paseo" aria-label="Un paseo por Bloom">
+    <section class="journey" id="paseo" aria-label="Un paseo con los ositos de Bloom">
       <div class="journey__intro">
-        <h2>Un paseo por Bloom.</h2>
-        <p>De la terraza a tu taza, en cinco momentos.</p>
+        <h2>Un paseo con los ositos.</h2>
+        <p>Tres momentos con los anfitriones más tiernos de Bloom.</p>
       </div>
       <div class="journey__stage">
 
-        <article class="scene" data-fx="0.5" data-fy="0.62">
-          <div class="scene__in">
-          <div class="scene__bg" style="background-image:url(assets/img/poster-reel-terraza.webp)" aria-hidden="true"></div>
-          <figure class="scene__plate scene__plate--tall"><video class="scene__media" poster="assets/img/poster-reel-terraza.webp" muted loop playsinline preload="none" aria-label="Vídeo de la terraza de Bloom"><source src="assets/video/reel-terraza.webm" type="video/webm"><source src="assets/video/reel-terraza.mp4" type="video/mp4"></video></figure>
-          <div class="scene__copy">
-            <h3>La terraza.</h3>
-            <p>Mesas al aire libre para el primer café del día.</p>
-          </div>
-          </div>
-        </article>
-        <article class="scene" data-fx="0.55" data-fy="0.4">
-          <div class="scene__in">
-          <div class="scene__bg" style="background-image:url(assets/img/paseo-sala-800.webp)" aria-hidden="true"></div>
-          <figure class="scene__plate scene__plate--tall"><img class="scene__media" src="assets/img/paseo-sala-800.webp" srcset="assets/img/paseo-sala-800.webp 800w, assets/img/paseo-sala-1600.webp 1600w" sizes="(max-width: 900px) 92vw, 60vw" alt="Sala interior de Bloom con suelo hidráulico, mesas de madera y plantas" width="1080" height="1600" loading="lazy" decoding="async"></figure>
-          <div class="scene__copy">
-            <h3>Dentro.</h3>
-            <p>Luz natural, suelo hidráulico y sitio para quedarse.</p>
-          </div>
-          </div>
-        </article>
         <article class="scene" data-fx="0.52" data-fy="0.74">
           <div class="scene__in">
           <div class="scene__bg" style="background-image:url(assets/img/paseo-ventana-800.webp)" aria-hidden="true"></div>
-          <figure class="scene__plate scene__plate--square"><img class="scene__media" src="assets/img/paseo-ventana-800.webp" srcset="assets/img/paseo-ventana-800.webp 800w, assets/img/paseo-ventana-1600.webp 1600w" sizes="(max-width: 900px) 92vw, 60vw" alt="Osito de peluche junto a la ventana con el logo de Bloom y una taza de café" width="1200" height="1200" loading="lazy" decoding="async"></figure>
+          <figure class="scene__plate scene__plate--square"><img class="scene__media" src="assets/img/paseo-ventana-800.webp" alt="Osito de peluche junto a la ventana con el logo de Bloom y una taza de café" width="800" height="800" loading="lazy" decoding="async"></figure>
           <div class="scene__copy">
             <h3>El osito de la casa.</h3>
-            <p>Te espera junto a la ventana, con su café.</p>
+            <p>Te guarda la mesa junto a la ventana, con su café.</p>
           </div>
           </div>
         </article>
-        <article class="scene" data-fx="0.23" data-fy="0.24">
+        <article class="scene" data-fx="0.5" data-fy="0.58">
           <div class="scene__in">
-          <div class="scene__bg" style="background-image:url(assets/img/paseo-brunch-800.webp)" aria-hidden="true"></div>
-          <figure class="scene__plate scene__plate--square"><img class="scene__media" src="assets/img/paseo-brunch-800.webp" srcset="assets/img/paseo-brunch-800.webp 800w, assets/img/paseo-brunch-1600.webp 1600w" sizes="(max-width: 900px) 92vw, 60vw" alt="Tosta de jamón serrano con tomate, café con leche y zumo de naranja" width="1200" height="1200" loading="lazy" decoding="async"></figure>
+          <div class="scene__bg" style="background-image:url(assets/img/osito-terraza.webp)" aria-hidden="true"></div>
+          <figure class="scene__plate scene__plate--tall"><img class="scene__media" src="assets/img/osito-terraza.webp" alt="Osito de peluche saludando en la terraza de Bloom con un café para llevar" width="539" height="840" loading="lazy" decoding="async"></figure>
           <div class="scene__copy">
-            <h3>Brunch.</h3>
-            <p>Tostas, zumo y café, recién servidos.</p>
+            <h3>Te saluda en la terraza.</h3>
+            <p>Sale a recibirte con un café para llevar.</p>
           </div>
           </div>
         </article>
         <article class="scene scene--last" data-fx="0.5" data-fy="0.5">
           <div class="scene__in">
-          <div class="scene__bg" style="background-image:url(assets/img/hero-barra-800.webp)" aria-hidden="true"></div>
-          <figure class="scene__plate scene__plate--land"><img class="scene__media" src="assets/img/prod-cafe-800.webp" srcset="assets/img/prod-cafe-800.webp 800w, assets/img/prod-cafe-1600.webp 1600w" sizes="(max-width: 900px) 92vw, 60vw" alt="Dos cafés con arte latte en forma de corazón" width="1536" height="1024" loading="lazy" decoding="async"></figure>
+          <div class="scene__bg" style="background-image:url(assets/img/osito-rosa.webp)" aria-hidden="true"></div>
+          <figure class="scene__plate scene__plate--tall"><img class="scene__media" src="assets/img/osito-rosa.webp" alt="Osito rosa de peluche en una mesa con tosta de aguacate y jamón, zumo de naranja y un café con corazón" width="771" height="1125" loading="lazy" decoding="async"></figure>
           <div class="scene__copy">
-            <h3>El café.</h3>
-            <p>Con corazón, en cada taza.</p>
+            <h3>Y te acompaña en el desayuno.</h3>
+            <p>Tosta, zumo y un café con corazón.</p>
             <a class="btn btn--rose" href="#carta">Ver la carta</a>
           </div>
           </div>
         </article>
 
         <ol class="journey__rail" aria-hidden="true">
-          <li>Terraza</li><li>Local</li><li>Ositos</li><li>Brunch</li><li>Café</li>
+          <li>Ventana</li><li>Terraza</li><li>Desayuno</li>
         </ol>
         <div class="journey__bar" aria-hidden="true"><span></span></div>
       </div>

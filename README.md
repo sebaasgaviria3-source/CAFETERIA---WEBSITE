@@ -32,6 +32,7 @@ Web de **Bloom Coffee & Brunch** (Calle Ángel Llanos 10, Vigo): web pública en
 ## Pendiente de confirmar
 
 - Información de alérgenos de cada producto (la web lo indica como pendiente).
+- Combinaciones de açaí (sección "Combinaciones de la casa" en `index.html`): los seis nombres, ingredientes y precios son provisionales, inventados para completar la carta. Sustituir por los datos reales del local. El açaí clásico (7,90 €) y sus extras sí son los verificados.
 - Precios de tapas, cócteles y raciones de churros (la web indica «Precio en el local»).
 - Textos legales: aviso legal, privacidad y cookies (titular, NIF…).
 - La página de carta más reciente muestra precios distintos e ilegibles para Despertar Bloom, Dulce Encuentro y una tosta «Serena». Se han usado los de la carta legible (7,80 €, 6,20 € y 7,00 €).

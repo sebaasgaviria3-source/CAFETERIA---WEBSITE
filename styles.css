@@ -160,6 +160,7 @@ strong, b { font-weight: var(--fw-bold); }
   .scene__in { grid-template-columns: 1fr; justify-items: center; align-content: start; text-align: center; gap: var(--space-6); }
   .journey.is-live .scene__in { align-content: center; padding-bottom: calc(var(--space-16) + 24px); }
   .scene__plate--tall { height: min(46svh, 440px); }
+  .scene--last .scene__plate--tall { height: min(40svh, 400px); }
   .scene__plate--square { height: auto; width: min(80vw, 44svh); }
   .scene__plate--land { width: min(88vw, 560px); }
   .scene__copy { max-width: 32ch; }
@@ -188,6 +189,53 @@ strong, b { font-weight: var(--fw-bold); }
 .star__next .icon { width: 1em; height: 1em; transform: rotate(90deg); transition: transform var(--dur-base) var(--ease); }
 .star__next:hover .icon { transform: rotate(90deg) translateX(4px); }
 @media (max-width: 860px) { .star { grid-template-columns: 1fr; } }
+
+/* ---------- Açaí: the house combinations, served as round bowls on a menu ---------- */
+.bowls { max-width: var(--max); margin: 0 auto; padding: var(--space-8) var(--gutter) var(--space-16); }
+.bowls__head { max-width: 640px; margin: 0 auto var(--space-12); text-align: center; }
+.bowls__head h2 { margin-bottom: var(--space-3); }
+.bowls__head p:last-child { color: var(--color-text-secondary); font-size: var(--fs-lede); margin: 0; }
+.bowls__layout { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(32px, 6vw, 88px); align-items: start; }
+
+/* signature bowl: a big plate with a rose halo */
+.bowl-sig { position: sticky; top: calc(var(--nav-h) + var(--space-8)); }
+.bowl-sig__plate { position: relative; width: min(100%, 398px); aspect-ratio: 1; margin: 0 auto var(--space-8); }
+.bowl-sig__plate::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--petal-200); transform: translate(7%, 6%); }
+.bowl-sig__plate img { position: relative; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; box-shadow: var(--shadow-photo); transition: transform 1.4s var(--ease); }
+.bowl-sig__badge { display: inline-block; margin-bottom: var(--space-3); padding: 5px 12px; border-radius: var(--radius-pill); background: var(--color-primary); color: var(--color-text-on-primary); font-size: var(--fs-label); font-weight: var(--fw-bold); letter-spacing: .12em; text-transform: uppercase; }
+.bowl-sig__name { font-size: clamp(2rem, 1.6rem + 1.4vw, 2.75rem); line-height: var(--lh-display); letter-spacing: var(--ls-display); margin: 0; }
+.bowl-sig .carte__dots { transform: translateY(-.45em); }
+.bowl-sig__ing { list-style: none; margin: var(--space-4) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.bowl-sig__ing li { padding: 6px 13px; border-radius: var(--radius-pill); background: rgb(255 249 246 / .85); box-shadow: inset 0 0 0 1px var(--petal-200); font-size: var(--fs-small); }
+
+/* the other combinations: menu rows with a small round plate */
+.bowls__groups .carte__group { margin-top: var(--space-10); }
+.bowls__groups .carte__group:first-child { margin-top: 0; }
+.bowl-list { list-style: none; margin: 0; padding: 0; }
+.bowl-row { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: var(--space-5); align-items: center; padding: var(--space-3) 0; }
+.bowl-row__plate { display: block; width: 96px; aspect-ratio: 1; border-radius: 50%; overflow: hidden; background: var(--petal-100); box-shadow: 0 0 0 4px rgb(255 249 246 / .9), var(--shadow-md); }
+.bowl-row__plate img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.bowl-row .carte__name { margin: 0; }
+.bowl-row .price, .bowl-sig .price { flex: none; font-weight: var(--fw-heavy); font-size: 1.0625rem; color: var(--price-color); white-space: nowrap; }
+.bowl-sig .bowl-sig__price { font-size: 1.5rem; }
+@media (hover: hover) and (pointer: fine) {
+  .bowl-row:hover .bowl-row__plate img, .bowl-sig:hover .bowl-sig__plate img { transform: rotate(14deg) scale(1.04); }
+  .bowl-row:hover .carte__name { color: var(--color-primary-text); }
+}
+@media (prefers-reduced-motion: reduce) { .bowl-row__plate img, .bowl-sig__plate img { transition: none; } }
+
+.bowls__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-2) var(--space-6); width: fit-content; max-width: 100%; margin: var(--space-12) auto 0; padding: var(--space-3) var(--space-6); border-radius: var(--radius-pill); background: rgb(255 255 255 / .6); box-shadow: inset 0 0 0 1px var(--petal-200); text-align: center; }
+.bowls__foot p { margin: 0; color: var(--color-text-secondary); }
+.bowls__foot strong { color: var(--color-text-heading); }
+
+@media (max-width: 860px) {
+  .bowls__layout { grid-template-columns: minmax(0, 1fr); }
+  .bowl-sig { position: relative; top: auto; }
+  .bowl-sig__plate { width: min(78vw, 360px); }
+  .bowl-row { grid-template-columns: 76px minmax(0, 1fr); gap: var(--space-4); }
+  .bowl-row__plate { width: 76px; }
+  .bowls__foot { border-radius: var(--radius-xl); }
+}
 
 /* ---------- La carta: a printed menu, one sheet per section ----------
    Desktop: numbered index on the left, a paper sheet on the right with the
