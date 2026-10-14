@@ -23,10 +23,10 @@
   <link rel="preload" href="assets/fonts/gloock-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="assets/img/paseo-barra-1600.webp" imagesrcset="assets/img/paseo-barra-800.webp 800w, assets/img/paseo-barra-1600.webp 1365w" imagesizes="100vw">
-  <link rel="stylesheet" href="tokens.css?v=20261014c">
-  <link rel="stylesheet" href="styles.css?v=20261014c">
+  <link rel="stylesheet" href="tokens.css?v=20261014d">
+  <link rel="stylesheet" href="styles.css?v=20261014d">
   <script defer src="lib/manifest.js?v=20261014"></script>
-  <script defer src="main.js?v=20261014c"></script>
+  <script defer src="main.js?v=20261014d"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -74,9 +74,11 @@
     <button class="nav__toggle" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú"><span></span><span></span></button>
     <nav class="nav__links" id="menu-movil" aria-label="Principal">
       <a href="#top">Inicio</a>
-      <a href="#carta">Carta digital</a>
+      <a href="#estrella">Açaí</a>
+      <a href="#paseo">El paseo</a>
+      <a href="#carta">Carta</a>
       <a href="#local">El local</a>
-      <a href="#visita">Horarios y contacto</a>
+      <a href="#visita">Horarios</a>
       <a class="btn btn--ghost nav__wa" href="https://wa.me/34640240176?text=Hola%20Bloom%2C%20quer%C3%ADa%20hacer%20una%20consulta." target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</a>
       <a class="btn btn--rose nav__cta" href="#carta">Ver carta</a>
     </nav>
@@ -119,63 +121,92 @@
       </div>
     </div>
 
-    <!-- ===================== PASEO: illustration dives into the real place ===================== -->
+    <!-- ===================== AÇAÍ ===================== -->
+    <div class="star-wrap">
+    <section class="star" id="estrella" aria-labelledby="star-title">
+      <figure class="star__media reveal">
+        <img src="assets/img/paseo-acai-800.webp" srcset="assets/img/paseo-acai-800.webp 800w, assets/img/paseo-acai-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 50vw" alt="Bowl de açaí con plátano, fresas, frambuesas, granola, coco y chía" width="1600" height="1200" loading="lazy" decoding="async">
+      </figure>
+      <div class="star__text reveal">
+        <h2 id="star-title">Açaí</h2>
+        <p class="star__lede">Açaí cremoso acompañado de granola, plátano y fresas. Energía, frescura y sabor en cada cucharada.</p>
+        <p class="star__price"><span class="price">7,90 €</span></p>
+        <div class="star__extras">
+          <p class="star__extras-title">Ponle tus extras</p>
+          <ul class="star__chips">
+            <li>Plátano <b class="price">0,80 €</b></li>
+            <li>Fresa <b class="price">0,80 €</b></li>
+            <li>Granola <b class="price">0,80 €</b></li>
+            <li>Leche en polvo <b class="price">0,80 €</b></li>
+            <li>Leche condensada <b class="price">0,80 €</b></li>
+            <li>Crema de pistacho <b class="price">1,20 €</b></li>
+          </ul>
+        </div>
+        <div class="star__ctas">
+          <a class="btn btn--rose" href="#carta">Ver toda la carta</a>
+          <a class="star__next" href="#paseo">Entra en Bloom <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <!-- ===================== PASEO: each real photo opens into the next ===================== -->
     <section class="journey" id="paseo" aria-label="Un paseo por Bloom">
       <div class="journey__intro">
         <h2>Un paseo por Bloom.</h2>
-        <p>Cinco momentos, de la terraza a tu taza.</p>
+        <p>De la terraza a tu taza, en cinco momentos.</p>
       </div>
       <div class="journey__stage">
 
-        <article class="beat">
-          <div class="beat__bg" style="background-image:url(assets/img/poster-reel-terraza.webp)" aria-hidden="true"></div>
-          <div class="beat__inner">
-            <figure class="beat__frame beat__frame--tall"><video class="beat__media" poster="assets/img/poster-reel-terraza.webp" muted loop playsinline preload="none" aria-label="Vídeo de la terraza de Bloom"><source src="assets/video/reel-terraza.webm" type="video/webm"><source src="assets/video/reel-terraza.mp4" type="video/mp4"></video></figure>
-            <div class="beat__copy">
-              <h3>La terraza.</h3>
-              <p>Mesas al aire libre para el primer café del día.</p>
-            </div>
+        <article class="scene" data-fx="0.5" data-fy="0.62">
+          <div class="scene__in">
+          <div class="scene__bg" style="background-image:url(assets/img/poster-reel-terraza.webp)" aria-hidden="true"></div>
+          <figure class="scene__plate scene__plate--tall"><video class="scene__media" poster="assets/img/poster-reel-terraza.webp" muted loop playsinline preload="none" aria-label="Vídeo de la terraza de Bloom"><source src="assets/video/reel-terraza.webm" type="video/webm"><source src="assets/video/reel-terraza.mp4" type="video/mp4"></video></figure>
+          <div class="scene__copy">
+            <h3>La terraza.</h3>
+            <p>Mesas al aire libre para el primer café del día.</p>
+          </div>
           </div>
         </article>
-        <article class="beat">
-          <div class="beat__bg" style="background-image:url(assets/img/paseo-sala-800.webp)" aria-hidden="true"></div>
-          <div class="beat__inner">
-            <figure class="beat__frame beat__frame--tall"><img class="beat__media" src="assets/img/paseo-sala-800.webp" srcset="assets/img/paseo-sala-800.webp 800w, assets/img/paseo-sala-1600.webp 1600w" sizes="(max-width: 900px) 86vw, 46vw" alt="Sala interior de Bloom con suelo hidráulico, mesas de madera y plantas" width="1080" height="1600" loading="lazy" decoding="async"></figure>
-            <div class="beat__copy">
-              <h3>Dentro.</h3>
-              <p>Luz natural, suelo hidráulico y sitio para quedarse.</p>
-            </div>
+        <article class="scene" data-fx="0.55" data-fy="0.4">
+          <div class="scene__in">
+          <div class="scene__bg" style="background-image:url(assets/img/paseo-sala-800.webp)" aria-hidden="true"></div>
+          <figure class="scene__plate scene__plate--tall"><img class="scene__media" src="assets/img/paseo-sala-800.webp" srcset="assets/img/paseo-sala-800.webp 800w, assets/img/paseo-sala-1600.webp 1600w" sizes="(max-width: 900px) 92vw, 60vw" alt="Sala interior de Bloom con suelo hidráulico, mesas de madera y plantas" width="1080" height="1600" loading="lazy" decoding="async"></figure>
+          <div class="scene__copy">
+            <h3>Dentro.</h3>
+            <p>Luz natural, suelo hidráulico y sitio para quedarse.</p>
+          </div>
           </div>
         </article>
-        <article class="beat">
-          <div class="beat__bg" style="background-image:url(assets/img/paseo-ventana-800.webp)" aria-hidden="true"></div>
-          <div class="beat__inner">
-            <div class="beat__pair"><figure class="beat__frame beat__frame--square"><img class="beat__media" src="assets/img/paseo-ventana-800.webp" srcset="assets/img/paseo-ventana-800.webp 800w, assets/img/paseo-ventana-1600.webp 1600w" sizes="(max-width: 900px) 86vw, 46vw" alt="Osito de peluche junto a la ventana con el logo de Bloom y un café" width="1200" height="1200" loading="lazy" decoding="async"></figure><figure class="beat__frame beat__frame--square beat__frame--offset"><img class="beat__media" src="assets/img/prod-infusiones-800.webp" srcset="assets/img/prod-infusiones-800.webp 800w, assets/img/prod-infusiones-1600.webp 1600w" sizes="(max-width: 900px) 86vw, 46vw" alt="Osito de peluche junto a las latas de infusiones naturales y una taza Bloom" width="1200" height="1200" loading="lazy" decoding="async"></figure></div>
-            <div class="beat__copy">
-              <h3>Los ositos.</h3>
-              <p>Los anfitriones más tranquilos de la casa.</p>
-            </div>
+        <article class="scene" data-fx="0.52" data-fy="0.74">
+          <div class="scene__in">
+          <div class="scene__bg" style="background-image:url(assets/img/paseo-ventana-800.webp)" aria-hidden="true"></div>
+          <figure class="scene__plate scene__plate--square"><img class="scene__media" src="assets/img/paseo-ventana-800.webp" srcset="assets/img/paseo-ventana-800.webp 800w, assets/img/paseo-ventana-1600.webp 1600w" sizes="(max-width: 900px) 92vw, 60vw" alt="Osito de peluche junto a la ventana con el logo de Bloom y una taza de café" width="1200" height="1200" loading="lazy" decoding="async"></figure>
+          <div class="scene__copy">
+            <h3>El osito de la casa.</h3>
+            <p>Te espera junto a la ventana, con su café.</p>
+          </div>
           </div>
         </article>
-        <article class="beat">
-          <div class="beat__bg" style="background-image:url(assets/img/paseo-brunch-800.webp)" aria-hidden="true"></div>
-          <div class="beat__inner">
-            <figure class="beat__frame beat__frame--square"><img class="beat__media" src="assets/img/paseo-brunch-800.webp" srcset="assets/img/paseo-brunch-800.webp 800w, assets/img/paseo-brunch-1600.webp 1600w" sizes="(max-width: 900px) 86vw, 46vw" alt="Tosta de jamón serrano con tomate, café con leche y zumo de naranja" width="1200" height="1200" loading="lazy" decoding="async"></figure>
-            <div class="beat__copy">
-              <h3>Brunch.</h3>
-              <p>Tostas, zumo y café, recién servidos.</p>
-            </div>
+        <article class="scene" data-fx="0.23" data-fy="0.24">
+          <div class="scene__in">
+          <div class="scene__bg" style="background-image:url(assets/img/paseo-brunch-800.webp)" aria-hidden="true"></div>
+          <figure class="scene__plate scene__plate--square"><img class="scene__media" src="assets/img/paseo-brunch-800.webp" srcset="assets/img/paseo-brunch-800.webp 800w, assets/img/paseo-brunch-1600.webp 1600w" sizes="(max-width: 900px) 92vw, 60vw" alt="Tosta de jamón serrano con tomate, café con leche y zumo de naranja" width="1200" height="1200" loading="lazy" decoding="async"></figure>
+          <div class="scene__copy">
+            <h3>Brunch.</h3>
+            <p>Tostas, zumo y café, recién servidos.</p>
+          </div>
           </div>
         </article>
-        <article class="beat beat--last">
-          <div class="beat__bg" style="background-image:url(assets/img/prod-cafe-800.webp)" aria-hidden="true"></div>
-          <div class="beat__inner">
-            <figure class="beat__frame beat__frame--land"><img class="beat__media" src="assets/img/prod-cafe-800.webp" srcset="assets/img/prod-cafe-800.webp 800w, assets/img/prod-cafe-1600.webp 1600w" sizes="(max-width: 900px) 86vw, 46vw" alt="Dos cafés con arte latte en forma de corazón" width="1536" height="1024" loading="lazy" decoding="async"></figure>
-            <div class="beat__copy">
-              <h3>El café.</h3>
-              <p>Con corazón, en cada taza.</p>
+        <article class="scene scene--last" data-fx="0.5" data-fy="0.5">
+          <div class="scene__in">
+          <div class="scene__bg" style="background-image:url(assets/img/paseo-barra-800.webp)" aria-hidden="true"></div>
+          <figure class="scene__plate scene__plate--land"><img class="scene__media" src="assets/img/prod-cafe-800.webp" srcset="assets/img/prod-cafe-800.webp 800w, assets/img/prod-cafe-1600.webp 1600w" sizes="(max-width: 900px) 92vw, 60vw" alt="Dos cafés con arte latte en forma de corazón" width="1536" height="1024" loading="lazy" decoding="async"></figure>
+          <div class="scene__copy">
+            <h3>El café.</h3>
+            <p>Con corazón, en cada taza.</p>
             <a class="btn btn--rose" href="#carta">Ver la carta</a>
-            </div>
+          </div>
           </div>
         </article>
 
@@ -186,250 +217,206 @@
       </div>
     </section>
 
-    <!-- ===================== AÇAÍ ===================== -->
-    <div class="star-wrap">
-    <section class="star" id="estrella" aria-labelledby="star-title">
-      <figure class="star__media reveal">
-        <img src="assets/img/paseo-acai-800.webp" srcset="assets/img/paseo-acai-800.webp 800w, assets/img/paseo-acai-1600.webp 1600w" sizes="(max-width: 700px) 92vw, 420px" alt="Bowl de açaí con plátano, fresas, frambuesas, granola, coco y chía" width="1600" height="1200" loading="lazy" decoding="async">
-      </figure>
-      <div class="star__text reveal">
-        <h2 id="star-title">Açaí</h2>
-        <p class="star__lede">Açaí cremoso acompañado de granola, plátano y fresas. Energía, frescura y sabor en cada cucharada.</p>
-        <p class="star__price"><span class="price">7,90 €</span></p>
-        <p class="star__extras">Extras: plátano, fresa, granola, leche en polvo o leche condensada <b class="price">0,80 €</b> · crema de pistacho <b class="price">1,20 €</b></p>
-        <a class="btn btn--rose" href="#carta">Ver toda la carta</a>
-      </div>
-    </section>
-    </div>
-
     <!-- ===================== CARTA DIGITAL ===================== -->
     <section class="menu" id="carta" aria-labelledby="menu-title">
       <div class="section-head reveal">
-        <h2 id="menu-title">Carta digital.</h2>
+        <p class="menu__eyebrow">Bloom Coffee &amp; Brunch <span aria-hidden="true">·</span> Vigo</p>
+        <h2 id="menu-title">La carta.</h2>
         <p>Elige una sección. Precios de la carta del local.</p>
       </div>
-      <div class="menu__tabs" role="tablist" aria-label="Secciones de la carta">
-        <button role="tab" id="t-cafe" aria-controls="p-cafe" aria-selected="true">Café</button>
-        <button role="tab" id="t-brunch" aria-controls="p-brunch" aria-selected="false" tabindex="-1">Brunch &amp; Tostas</button>
-        <button role="tab" id="t-bowls" aria-controls="p-bowls" aria-selected="false" tabindex="-1">Bowls &amp; Dulces</button>
-        <button role="tab" id="t-bebidas" aria-controls="p-bebidas" aria-selected="false" tabindex="-1">Bebidas &amp; Batidos</button>
-        <button role="tab" id="t-brasil" aria-controls="p-brasil" aria-selected="false" tabindex="-1">Sabores de Brasil</button>
-        <button role="tab" id="t-salados" aria-controls="p-salados" aria-selected="false" tabindex="-1">Salados &amp; Tapas</button>
-        <button role="tab" id="t-cocteles" aria-controls="p-cocteles" aria-selected="false" tabindex="-1">Cócteles</button>
-      </div>
-      <div class="menu__panels">
-        <div class="menu__panel" role="tabpanel" id="p-cafe" aria-labelledby="t-cafe">
-          <p class="menu__intro">Café de especialidad, chocolates e infusiones naturales.</p>
-          <div class="menu__cards">
-            <article class="dish">
-              <div class="dish__media"><img src="assets/img/prod-cafe-800.webp" srcset="assets/img/prod-cafe-800.webp 800w, assets/img/prod-cafe-1600.webp 1600w" sizes="(max-width: 700px) 92vw, 420px" alt="Dos cafés con leche con arte latte en tazas azules" width="800" height="600" loading="lazy" decoding="async"></div>
-              <div class="dish__body">
-                <div class="dish__head"><h4>Café con leche</h4><span class="price">desde 1,60 €</span></div>
-                <p>Pequeño 1,60 € · grande 1,70 €.</p>
-                <p class="dish__allergens">Alérgenos: pendiente de confirmar</p>
-              </div>
-            </article>
-            <article class="dish">
-              <div class="dish__media"><img src="assets/img/prod-infusiones-800.webp" srcset="assets/img/prod-infusiones-800.webp 800w, assets/img/prod-infusiones-1600.webp 1600w" sizes="(max-width: 700px) 92vw, 420px" alt="Latas de infusiones naturales junto a un osito de peluche y una taza Bloom" width="800" height="600" loading="lazy" decoding="async"></div>
-              <div class="dish__body">
-                <div class="dish__head"><h4>Infusiones naturales</h4><span class="price">1,70 €</span></div>
-                <p>Agua de Jamaica, Red Velvet, Menta Poleo, Frutos Rojos, Manzanilla, Rooibos, Té Rojo, Té Negro, Té Verde, Jengibre Limón, Piña Colada y Naranja Maracuyá.</p>
-                <p class="dish__allergens">Alérgenos: pendiente de confirmar</p>
-              </div>
-            </article>
-          </div>
-          <ul class="menu__rows">
-              <li><div><h4>Café solo</h4></div><span class="price">1,40 €</span></li>
-              <li><div><h4>Cortado</h4></div><span class="price">1,50 €</span></li>
-              <li><div><h4>Americano</h4></div><span class="price">1,60 €</span></li>
-              <li><div><h4>Capuchino</h4></div><span class="price">2,50 €</span></li>
-              <li><div><h4>Café bombón</h4></div><span class="price">2,70 €</span></li>
-              <li><div><h4>Chocolate</h4></div><span class="price">3,00 €</span></li>
-              <li><div><h4>Chocolate con churros pequeño</h4></div><span class="price">2,80 €</span></li>
-              <li><div><h4>Chocolate con churros grande</h4></div><span class="price">2,80 €</span></li>
-            </ul>
+      <div class="menu__book">
+        <div class="menu__tabs" role="tablist" aria-label="Secciones de la carta">
+          <button role="tab" id="t-cafe" aria-controls="p-cafe" aria-selected="true"><span class="menu__tab-num" aria-hidden="true">01</span><span class="menu__tab-name">Café</span></button>
+          <button role="tab" id="t-brunch" aria-controls="p-brunch" aria-selected="false" tabindex="-1"><span class="menu__tab-num" aria-hidden="true">02</span><span class="menu__tab-name">Brunch &amp; Tostas</span></button>
+          <button role="tab" id="t-bowls" aria-controls="p-bowls" aria-selected="false" tabindex="-1"><span class="menu__tab-num" aria-hidden="true">03</span><span class="menu__tab-name">Bowls &amp; Dulces</span></button>
+          <button role="tab" id="t-bebidas" aria-controls="p-bebidas" aria-selected="false" tabindex="-1"><span class="menu__tab-num" aria-hidden="true">04</span><span class="menu__tab-name">Bebidas &amp; Batidos</span></button>
+          <button role="tab" id="t-brasil" aria-controls="p-brasil" aria-selected="false" tabindex="-1"><span class="menu__tab-num" aria-hidden="true">05</span><span class="menu__tab-name">Sabores de Brasil</span></button>
+          <button role="tab" id="t-salados" aria-controls="p-salados" aria-selected="false" tabindex="-1"><span class="menu__tab-num" aria-hidden="true">06</span><span class="menu__tab-name">Salados &amp; Tapas</span></button>
+          <button role="tab" id="t-cocteles" aria-controls="p-cocteles" aria-selected="false" tabindex="-1"><span class="menu__tab-num" aria-hidden="true">07</span><span class="menu__tab-name">Cócteles</span></button>
         </div>
-
-        <div class="menu__panel" role="tabpanel" id="p-brunch" aria-labelledby="t-brunch" hidden>
-          <p class="menu__intro">Tostas de la casa y extras para completar.</p>
-          <div class="menu__cards">
-            <article class="dish">
-              <div class="dish__media"><img src="assets/img/paseo-brunch-800.webp" srcset="assets/img/paseo-brunch-800.webp 800w, assets/img/paseo-brunch-1600.webp 1600w" sizes="(max-width: 700px) 92vw, 420px" alt="Tosta con jamón serrano y tomate, café con leche y zumo de naranja" width="800" height="600" loading="lazy" decoding="async"></div>
-              <div class="dish__body">
-                <div class="dish__head"><h4>Tostas Bloom</h4><span class="price">desde 4,50 €</span></div>
-                <p>Ocho tostas de la casa, de 4,50 € a 8,50 €.</p>
-                <p class="dish__allergens">Alérgenos: pendiente de confirmar</p>
+        <div class="menu__panels">
+          <div class="menu__panel sheet" role="tabpanel" id="p-cafe" aria-labelledby="t-cafe" tabindex="0">
+            <header class="sheet__head"><span class="sheet__num" aria-hidden="true">01</span><h3 class="sheet__title">Café</h3><p class="sheet__lede">Café de especialidad, chocolates e infusiones naturales.</p></header>
+            <div class="sheet__body">
+              <div class="sheet__list">
+                <ul class="carte">
+                  <li class="carte__item carte__item--photo" data-photo="prod-cafe" data-alt="Dos cafés con leche con arte latte en tazas azules"><div class="carte__line"><span class="carte__name">Café con leche</span><span class="carte__dots" aria-hidden="true"></span><span class="price">1,60 / 1,70 €</span></div><p class="carte__desc">Pequeño / grande.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Café solo</span><span class="carte__dots" aria-hidden="true"></span><span class="price">1,40 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Cortado</span><span class="carte__dots" aria-hidden="true"></span><span class="price">1,50 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Americano</span><span class="carte__dots" aria-hidden="true"></span><span class="price">1,60 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Capuchino</span><span class="carte__dots" aria-hidden="true"></span><span class="price">2,50 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Café bombón</span><span class="carte__dots" aria-hidden="true"></span><span class="price">2,70 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Chocolate</span><span class="carte__dots" aria-hidden="true"></span><span class="price">3,00 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Chocolate con churros pequeño</span><span class="carte__dots" aria-hidden="true"></span><span class="price">2,80 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Chocolate con churros grande</span><span class="carte__dots" aria-hidden="true"></span><span class="price">2,80 €</span></div></li>
+                  <li class="carte__item carte__item--photo" data-photo="prod-infusiones" data-alt="Latas de infusiones naturales junto a un osito de peluche y una taza Bloom"><div class="carte__line"><span class="carte__name">Infusiones naturales</span><span class="carte__dots" aria-hidden="true"></span><span class="price">1,70 €</span></div><p class="carte__desc">Agua de Jamaica, Red Velvet, Menta Poleo, Frutos Rojos, Manzanilla, Rooibos, Té Rojo, Té Negro, Té Verde, Jengibre Limón, Piña Colada y Naranja Maracuyá.</p></li>
+                </ul>
               </div>
-            </article>
+              <figure class="sheet__photo">
+                <div class="sheet__frame"><img class="sheet__img" src="assets/img/prod-cafe-800.webp" srcset="assets/img/prod-cafe-800.webp 800w, assets/img/prod-cafe-1600.webp 1600w" sizes="(max-width: 979px) 92vw, 440px" alt="Dos cafés con leche con arte latte en tazas azules" width="800" height="600" loading="lazy" decoding="async"></div>
+                <div class="sheet__thumbs">
+                  <button type="button" class="sheet__thumb" data-photo="prod-cafe" data-alt="Dos cafés con leche con arte latte en tazas azules" aria-label="Ver foto: Café con leche" aria-pressed="true"><img src="assets/img/thumb-prod-cafe.webp" alt="" width="160" height="120" loading="lazy" decoding="async"></button>
+                  <button type="button" class="sheet__thumb" data-photo="prod-infusiones" data-alt="Latas de infusiones naturales junto a un osito de peluche y una taza Bloom" aria-label="Ver foto: Infusiones naturales" aria-pressed="false"><img src="assets/img/thumb-prod-infusiones.webp" alt="" width="160" height="120" loading="lazy" decoding="async"></button>
+                </div>
+              </figure>
+            </div>
           </div>
-          <ul class="menu__rows">
-              <li><div><h4>Aguacate, jamón serrano y huevo benedict</h4><p>Aguacate en láminas, jamón serrano, huevo poché y salsa holandesa.</p></div><span class="price">8,50 €</span></li>
-              <li><div><h4>Mermelada y queso crema</h4><p>Queso crema suave y mermelada de frutos rojos.</p></div><span class="price">4,60 €</span></li>
-              <li><div><h4>Brisa del Huerto</h4><p>Tomate triturado, aceite de oliva virgen extra y sal en escamas.</p></div><span class="price">4,50 €</span></li>
-              <li><div><h4>Esencia Bloom</h4><p>Queso en crema, jamón serrano y aguacate.</p></div><span class="price">6,60 €</span></li>
-              <li><div><h4>Alma Serena</h4><p>Queso en crema, pavo, aguacate y semillas de chía.</p></div><span class="price">7,00 €</span></li>
-              <li><div><h4>Despertar Bloom</h4><p>Aguacate cremoso, pavo y huevo revuelto.</p></div><span class="price">7,80 €</span></li>
-              <li><div><h4>Dulce Encuentro</h4><p>Nutella, plátano, fresa y un toque extra de Nutella.</p></div><span class="price">6,20 €</span></li>
-              <li><div><h4>Jardín de Pistacho</h4><p>Crema de pistacho, plátano, fresa y pistacho crujiente.</p></div><span class="price">7,20 €</span></li>
-              <li><div><h4>Extra: huevo a la plancha</h4></div><span class="price">1,20 €</span></li>
-              <li><div><h4>Extra: huevo revuelto</h4></div><span class="price">1,20 €</span></li>
-              <li><div><h4>Extra: bacon</h4></div><span class="price">1,30 €</span></li>
-              <li><div><h4>Extra: semillas de chía</h4></div><span class="price">0,70 €</span></li>
-            </ul>
-        </div>
-
-        <div class="menu__panel" role="tabpanel" id="p-bowls" aria-labelledby="t-bowls" hidden>
-          <p class="menu__intro">Açaí y repostería.</p>
-          <div class="menu__cards">
-            <article class="dish">
-              <div class="dish__media"><img src="assets/img/paseo-acai-800.webp" srcset="assets/img/paseo-acai-800.webp 800w, assets/img/paseo-acai-1600.webp 1600w" sizes="(max-width: 700px) 92vw, 420px" alt="Bowl de açaí con plátano, fresas, frambuesas, granola, coco y chía" width="800" height="600" loading="lazy" decoding="async"></div>
-              <div class="dish__body">
-                <div class="dish__head"><h4>Açaí</h4><span class="price">7,90 €</span></div>
-                <p>Açaí cremoso acompañado de granola, plátano y fresas.</p>
-                <p class="dish__allergens">Alérgenos: pendiente de confirmar</p>
+          <div class="menu__panel sheet" role="tabpanel" id="p-brunch" aria-labelledby="t-brunch" tabindex="0" hidden>
+            <header class="sheet__head"><span class="sheet__num" aria-hidden="true">02</span><h3 class="sheet__title">Brunch &amp; Tostas</h3><p class="sheet__lede">Tostas de la casa y extras para completar.</p></header>
+            <div class="sheet__body">
+              <div class="sheet__list">
+                <h4 class="carte__group"><span>Tostas Bloom</span></h4>
+                <ul class="carte">
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Aguacate, jamón serrano y huevo benedict</span><span class="carte__dots" aria-hidden="true"></span><span class="price">8,50 €</span></div><p class="carte__desc">Aguacate en láminas, jamón serrano, huevo poché y salsa holandesa.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Mermelada y queso crema</span><span class="carte__dots" aria-hidden="true"></span><span class="price">4,60 €</span></div><p class="carte__desc">Queso crema suave y mermelada de frutos rojos.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Brisa del Huerto</span><span class="carte__dots" aria-hidden="true"></span><span class="price">4,50 €</span></div><p class="carte__desc">Tomate triturado, aceite de oliva virgen extra y sal en escamas.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Esencia Bloom</span><span class="carte__dots" aria-hidden="true"></span><span class="price">6,60 €</span></div><p class="carte__desc">Queso en crema, jamón serrano y aguacate.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Alma Serena</span><span class="carte__dots" aria-hidden="true"></span><span class="price">7,00 €</span></div><p class="carte__desc">Queso en crema, pavo, aguacate y semillas de chía.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Despertar Bloom</span><span class="carte__dots" aria-hidden="true"></span><span class="price">7,80 €</span></div><p class="carte__desc">Aguacate cremoso, pavo y huevo revuelto.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Dulce Encuentro</span><span class="carte__dots" aria-hidden="true"></span><span class="price">6,20 €</span></div><p class="carte__desc">Nutella, plátano, fresa y un toque extra de Nutella.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Jardín de Pistacho</span><span class="carte__dots" aria-hidden="true"></span><span class="price">7,20 €</span></div><p class="carte__desc">Crema de pistacho, plátano, fresa y pistacho crujiente.</p></li>
+                </ul>
+                <h4 class="carte__group"><span>Extras</span></h4>
+                <ul class="carte">
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Huevo a la plancha</span><span class="carte__dots" aria-hidden="true"></span><span class="price">1,20 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Huevo revuelto</span><span class="carte__dots" aria-hidden="true"></span><span class="price">1,20 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Bacon</span><span class="carte__dots" aria-hidden="true"></span><span class="price">1,30 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Semillas de chía</span><span class="carte__dots" aria-hidden="true"></span><span class="price">0,70 €</span></div></li>
+                </ul>
               </div>
-            </article>
+              <figure class="sheet__photo">
+                <div class="sheet__frame"><img class="sheet__img" src="assets/img/paseo-brunch-800.webp" srcset="assets/img/paseo-brunch-800.webp 800w, assets/img/paseo-brunch-1600.webp 1600w" sizes="(max-width: 979px) 92vw, 440px" alt="Tosta con jamón serrano y tomate, café con leche y zumo de naranja" width="800" height="600" loading="lazy" decoding="async"></div>
+              </figure>
+            </div>
           </div>
-          <ul class="menu__rows">
-              <li><div><h4>Extras para el açaí</h4><p>Plátano, fresa, granola, leche en polvo o leche condensada 0,80 € · crema de pistacho 1,20 €.</p></div><span class="price">desde 0,80 €</span></li>
-              <li><div><h4>Pony</h4><p>Hojaldre relleno de chocolate, decorado con virutas.</p></div><span class="price">1,80 €</span></li>
-              <li><div><h4>Croissant</h4><p>Mantequilla, hojaldrado y dorado.</p></div><span class="price">1,80 €</span></li>
-              <li><div><h4>Donut</h4><p>Cubierto de glaseado y decorado con virutas.</p></div><span class="price">1,70 €</span></li>
-              <li><div><h4>Napolitana</h4><p>Hojaldre relleno de chocolate, con azúcar glas y virutas.</p></div><span class="price">1,80 €</span></li>
-              <li><div><h4>Bollo de leche con crema</h4><p>Bollo de leche cubierto con crema pastelera.</p></div><span class="price">1,80 €</span></li>
-              <li><div><h4>Trenza</h4><p>Esponjosa y aromática.</p></div><span class="price">4,50 €</span></li>
-              <li><div><h4>Brisa de Dulce</h4><p>Bollo relleno de dulce de leche.</p></div><span class="price">2,50 €</span></li>
-              <li><div><h4>Ración de churros</h4></div><span class="price price--pending">Precio en el local</span></li>
-              <li><div><h4>Media ración de churros</h4></div><span class="price price--pending">Precio en el local</span></li>
-            </ul>
-        </div>
-
-        <div class="menu__panel" role="tabpanel" id="p-bebidas" aria-labelledby="t-bebidas" hidden>
-          <p class="menu__intro">Batidos cremosos y refrescantes.</p>
-          <div class="menu__cards">
-            <article class="dish">
-              <div class="dish__media"><img src="assets/img/prod-batidos-800.webp" srcset="assets/img/prod-batidos-800.webp 800w, assets/img/prod-batidos-1600.webp 1600w" sizes="(max-width: 700px) 92vw, 420px" alt="Batidos de colores en tarros de cristal frente al mar" width="800" height="600" loading="lazy" decoding="async"></div>
-              <div class="dish__body">
-                <div class="dish__head"><h4>Batidos</h4><span class="price">desde 6,50 €</span></div>
-                <p>Fresa y plátano, fresa, maracuyá en leche, maracuyá en agua, frutos rojos y Oreo.</p>
-                <p class="dish__allergens">Alérgenos: pendiente de confirmar</p>
+          <div class="menu__panel sheet" role="tabpanel" id="p-bowls" aria-labelledby="t-bowls" tabindex="0" hidden>
+            <header class="sheet__head"><span class="sheet__num" aria-hidden="true">03</span><h3 class="sheet__title">Bowls &amp; Dulces</h3><p class="sheet__lede">Açaí y repostería.</p></header>
+            <div class="sheet__body">
+              <div class="sheet__list">
+                <ul class="carte">
+                  <li class="carte__item carte__item--photo" data-photo="paseo-acai" data-alt="Bowl de açaí con plátano, fresas, frambuesas, granola, coco y chía"><div class="carte__line"><span class="carte__name">Açaí</span><span class="carte__dots" aria-hidden="true"></span><span class="price">7,90 €</span></div><p class="carte__desc">Açaí cremoso acompañado de granola, plátano y fresas.</p></li>
+                </ul>
+                <h4 class="carte__group"><span>Extras para el açaí</span></h4>
+                <ul class="carte">
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Plátano</span><span class="carte__dots" aria-hidden="true"></span><span class="price">0,80 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Fresa</span><span class="carte__dots" aria-hidden="true"></span><span class="price">0,80 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Granola</span><span class="carte__dots" aria-hidden="true"></span><span class="price">0,80 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Leche en polvo</span><span class="carte__dots" aria-hidden="true"></span><span class="price">0,80 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Leche condensada</span><span class="carte__dots" aria-hidden="true"></span><span class="price">0,80 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Crema de pistacho</span><span class="carte__dots" aria-hidden="true"></span><span class="price">1,20 €</span></div></li>
+                </ul>
+                <h4 class="carte__group"><span>Dulces</span></h4>
+                <ul class="carte">
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Pony</span><span class="carte__dots" aria-hidden="true"></span><span class="price">1,80 €</span></div><p class="carte__desc">Hojaldre relleno de chocolate, decorado con virutas.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Croissant</span><span class="carte__dots" aria-hidden="true"></span><span class="price">1,80 €</span></div><p class="carte__desc">Mantequilla, hojaldrado y dorado.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Donut</span><span class="carte__dots" aria-hidden="true"></span><span class="price">1,70 €</span></div><p class="carte__desc">Cubierto de glaseado y decorado con virutas.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Napolitana</span><span class="carte__dots" aria-hidden="true"></span><span class="price">1,80 €</span></div><p class="carte__desc">Hojaldre relleno de chocolate, con azúcar glas y virutas.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Bollo de leche con crema</span><span class="carte__dots" aria-hidden="true"></span><span class="price">1,80 €</span></div><p class="carte__desc">Bollo de leche cubierto con crema pastelera.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Trenza</span><span class="carte__dots" aria-hidden="true"></span><span class="price">4,50 €</span></div><p class="carte__desc">Esponjosa y aromática.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Brisa de Dulce</span><span class="carte__dots" aria-hidden="true"></span><span class="price">2,50 €</span></div><p class="carte__desc">Bollo relleno de dulce de leche.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Ración de churros</span><span class="carte__dots" aria-hidden="true"></span><span class="price price--pending">Precio en el local</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Media ración de churros</span><span class="carte__dots" aria-hidden="true"></span><span class="price price--pending">Precio en el local</span></div></li>
+                </ul>
               </div>
-            </article>
+              <figure class="sheet__photo">
+                <div class="sheet__frame"><img class="sheet__img" src="assets/img/paseo-acai-800.webp" srcset="assets/img/paseo-acai-800.webp 800w, assets/img/paseo-acai-1600.webp 1600w" sizes="(max-width: 979px) 92vw, 440px" alt="Bowl de açaí con plátano, fresas, frambuesas, granola, coco y chía" width="800" height="600" loading="lazy" decoding="async"></div>
+              </figure>
+            </div>
           </div>
-          <ul class="menu__rows">
-              <li><div><h4>Fresa y plátano</h4></div><span class="price">6,50 €</span></li>
-              <li><div><h4>Fresa</h4></div><span class="price">6,50 €</span></li>
-              <li><div><h4>Maracuyá en leche</h4></div><span class="price">6,80 €</span></li>
-              <li><div><h4>Maracuyá en agua</h4></div><span class="price">6,70 €</span></li>
-              <li><div><h4>Frutos rojos</h4></div><span class="price">6,50 €</span></li>
-              <li><div><h4>Oreo</h4></div><span class="price">6,80 €</span></li>
-            </ul>
-        </div>
-
-        <div class="menu__panel" role="tabpanel" id="p-brasil" aria-labelledby="t-brasil" hidden>
-          <p class="menu__intro">Un viaje a Brasil en cada bocado.</p>
-          <div class="menu__cards">
-            <article class="dish">
-              <div class="dish__media"><img src="assets/img/prod-pan-de-queso-800.webp" srcset="assets/img/prod-pan-de-queso-800.webp 800w, assets/img/prod-pan-de-queso-1600.webp 1600w" sizes="(max-width: 700px) 92vw, 420px" alt="Pan de queso recién horneado en una sartén" width="800" height="600" loading="lazy" decoding="async"></div>
-              <div class="dish__body">
-                <div class="dish__head"><h4>Pan de queso</h4><span class="price">1,30 €</span></div>
-                <p>Bollitos de queso horneados, crujientes por fuera y suaves por dentro.</p>
-                <p class="dish__allergens">Alérgenos: pendiente de confirmar</p>
+          <div class="menu__panel sheet" role="tabpanel" id="p-bebidas" aria-labelledby="t-bebidas" tabindex="0" hidden>
+            <header class="sheet__head"><span class="sheet__num" aria-hidden="true">04</span><h3 class="sheet__title">Bebidas &amp; Batidos</h3><p class="sheet__lede">Batidos cremosos y refrescantes.</p></header>
+            <div class="sheet__body">
+              <div class="sheet__list">
+                <h4 class="carte__group"><span>Batidos</span></h4>
+                <ul class="carte">
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Fresa y plátano</span><span class="carte__dots" aria-hidden="true"></span><span class="price">6,50 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Fresa</span><span class="carte__dots" aria-hidden="true"></span><span class="price">6,50 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Maracuyá en leche</span><span class="carte__dots" aria-hidden="true"></span><span class="price">6,80 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Maracuyá en agua</span><span class="carte__dots" aria-hidden="true"></span><span class="price">6,70 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Frutos rojos</span><span class="carte__dots" aria-hidden="true"></span><span class="price">6,50 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Oreo</span><span class="carte__dots" aria-hidden="true"></span><span class="price">6,80 €</span></div></li>
+                </ul>
               </div>
-            </article>
-            <article class="dish">
-              <div class="dish__media"><img src="assets/img/prod-coxinha-800.webp" srcset="assets/img/prod-coxinha-800.webp 800w, assets/img/prod-coxinha-1600.webp 1600w" sizes="(max-width: 700px) 92vw, 420px" alt="Coxinha dorada servida en cápsula de papel" width="800" height="600" loading="lazy" decoding="async"></div>
-              <div class="dish__body">
-                <div class="dish__head"><h4>Coxinha de pollo con catupiry</h4><span class="price">3,50 €</span></div>
-                <p>Rellena de pollo desmenuzado y catupiry, empanada y frita.</p>
-                <p class="dish__allergens">Alérgenos: pendiente de confirmar</p>
-              </div>
-            </article>
-            <article class="dish">
-              <div class="dish__media"><img src="assets/img/prod-pastel-800.webp" srcset="assets/img/prod-pastel-800.webp 800w, assets/img/prod-pastel-1600.webp 1600w" sizes="(max-width: 700px) 92vw, 420px" alt="Pastel a la feria dorado en plato" width="800" height="600" loading="lazy" decoding="async"></div>
-              <div class="dish__body">
-                <div class="dish__head"><h4>Pastel a la feria</h4><span class="price">6,50 €</span></div>
-                <p>Pollo con queso, carne con queso o pizza (tomate, jamón, queso y orégano).</p>
-                <p class="dish__allergens">Alérgenos: pendiente de confirmar</p>
-              </div>
-            </article>
-            <article class="dish">
-              <div class="dish__media"><img src="assets/img/paseo-acai-800.webp" srcset="assets/img/paseo-acai-800.webp 800w, assets/img/paseo-acai-1600.webp 1600w" sizes="(max-width: 700px) 92vw, 420px" alt="Bowl de açaí con fruta y granola" width="800" height="600" loading="lazy" decoding="async"></div>
-              <div class="dish__body">
-                <div class="dish__head"><h4>Açaí</h4><span class="price">7,90 €</span></div>
-                <p>Açaí cremoso acompañado de granola, plátano y fresas.</p>
-                <p class="dish__allergens">Alérgenos: pendiente de confirmar</p>
-              </div>
-            </article>
+              <figure class="sheet__photo">
+                <div class="sheet__frame"><img class="sheet__img" src="assets/img/prod-batidos-800.webp" srcset="assets/img/prod-batidos-800.webp 800w, assets/img/prod-batidos-1600.webp 1600w" sizes="(max-width: 979px) 92vw, 440px" alt="Batidos de colores en tarros de cristal frente al mar" width="800" height="600" loading="lazy" decoding="async"></div>
+              </figure>
+            </div>
           </div>
-          
-        </div>
-
-        <div class="menu__panel" role="tabpanel" id="p-salados" aria-labelledby="t-salados" hidden>
-          <p class="menu__intro">Sándwiches, hamburguesas y tapas para compartir.</p>
-          <div class="menu__cards">
-            <article class="dish">
-              <div class="dish__media"><img src="assets/img/prod-hamburguesa-800.webp" srcset="assets/img/prod-hamburguesa-800.webp 800w, assets/img/prod-hamburguesa-1600.webp 1600w" sizes="(max-width: 700px) 92vw, 420px" alt="Hamburguesa completa con huevo y queso en plato" width="800" height="600" loading="lazy" decoding="async"></div>
-              <div class="dish__body">
-                <div class="dish__head"><h4>Hamburguesa completa</h4><span class="price">8,50 €</span></div>
-                <p>Lechuga, tomate, jamón york, queso, cebolla y bacon.</p>
-                <p class="dish__allergens">Alérgenos: pendiente de confirmar</p>
+          <div class="menu__panel sheet" role="tabpanel" id="p-brasil" aria-labelledby="t-brasil" tabindex="0" hidden>
+            <header class="sheet__head"><span class="sheet__num" aria-hidden="true">05</span><h3 class="sheet__title">Sabores de Brasil</h3><p class="sheet__lede">Un viaje a Brasil en cada bocado.</p></header>
+            <div class="sheet__body">
+              <div class="sheet__list">
+                <ul class="carte">
+                  <li class="carte__item carte__item--photo" data-photo="prod-pan-de-queso" data-alt="Pan de queso recién horneado en una sartén"><div class="carte__line"><span class="carte__name">Pan de queso</span><span class="carte__dots" aria-hidden="true"></span><span class="price">1,30 €</span></div><p class="carte__desc">Bollitos de queso horneados, crujientes por fuera y suaves por dentro.</p></li>
+                  <li class="carte__item carte__item--photo" data-photo="prod-coxinha" data-alt="Coxinha dorada servida en cápsula de papel"><div class="carte__line"><span class="carte__name">Coxinha de pollo con catupiry</span><span class="carte__dots" aria-hidden="true"></span><span class="price">3,50 €</span></div><p class="carte__desc">Rellena de pollo desmenuzado y catupiry, empanada y frita.</p></li>
+                  <li class="carte__item carte__item--photo" data-photo="prod-pastel" data-alt="Pastel a la feria dorado en plato"><div class="carte__line"><span class="carte__name">Pastel a la feria</span><span class="carte__dots" aria-hidden="true"></span><span class="price">6,50 €</span></div><p class="carte__desc">Pollo con queso, carne con queso o pizza (tomate, jamón, queso y orégano).</p></li>
+                  <li class="carte__item carte__item--photo" data-photo="paseo-acai" data-alt="Bowl de açaí con fruta y granola"><div class="carte__line"><span class="carte__name">Açaí</span><span class="carte__dots" aria-hidden="true"></span><span class="price">7,90 €</span></div><p class="carte__desc">Açaí cremoso acompañado de granola, plátano y fresas.</p></li>
+                </ul>
               </div>
-            </article>
-            <article class="dish">
-              <div class="dish__media"><img src="assets/img/prod-sandwich-mixto-800.webp" srcset="assets/img/prod-sandwich-mixto-800.webp 800w, assets/img/prod-sandwich-mixto-1600.webp 1600w" sizes="(max-width: 700px) 92vw, 420px" alt="Sándwich mixto tostado cortado en triángulos" width="800" height="600" loading="lazy" decoding="async"></div>
-              <div class="dish__body">
-                <div class="dish__head"><h4>Sándwich mixto</h4><span class="price">5,50 €</span></div>
-                <p>Jamón york y queso fundido.</p>
-                <p class="dish__allergens">Alérgenos: pendiente de confirmar</p>
-              </div>
-            </article>
-            <article class="dish">
-              <div class="dish__media"><img src="assets/img/prod-gambas-800.webp" srcset="assets/img/prod-gambas-800.webp 800w, assets/img/prod-gambas-1600.webp 1600w" sizes="(max-width: 700px) 92vw, 420px" alt="Gambas empanadas con salsa" width="800" height="600" loading="lazy" decoding="async"></div>
-              <div class="dish__body">
-                <div class="dish__head"><h4>Gambas empanado</h4><span class="price">6,90 €</span></div>
-                
-                <p class="dish__allergens">Alérgenos: pendiente de confirmar</p>
-              </div>
-            </article>
-            <article class="dish">
-              <div class="dish__media"><img src="assets/img/prod-huevos-rotos-800.webp" srcset="assets/img/prod-huevos-rotos-800.webp 800w, assets/img/prod-huevos-rotos-1600.webp 1600w" sizes="(max-width: 700px) 92vw, 420px" alt="Huevos rotos con jamón en cazuela" width="800" height="600" loading="lazy" decoding="async"></div>
-              <div class="dish__body">
-                <div class="dish__head"><h4>Huevos rotos con jamón</h4><span class="price">Precio en el local</span></div>
-                <p>Patatas fritas con huevos rotos y jamón serrano.</p>
-                <p class="dish__allergens">Alérgenos: pendiente de confirmar</p>
-              </div>
-            </article>
-            <article class="dish">
-              <div class="dish__media"><img src="assets/img/prod-tortilla-800.webp" srcset="assets/img/prod-tortilla-800.webp 800w, assets/img/prod-tortilla-1600.webp 1600w" sizes="(max-width: 700px) 92vw, 420px" alt="Porción de tortilla española" width="800" height="600" loading="lazy" decoding="async"></div>
-              <div class="dish__body">
-                <div class="dish__head"><h4>Tortilla española</h4><span class="price">Precio en el local</span></div>
-                <p>Tradicional, jugosa por dentro.</p>
-                <p class="dish__allergens">Alérgenos: pendiente de confirmar</p>
-              </div>
-            </article>
+              <figure class="sheet__photo">
+                <div class="sheet__frame"><img class="sheet__img" src="assets/img/prod-pan-de-queso-800.webp" srcset="assets/img/prod-pan-de-queso-800.webp 800w, assets/img/prod-pan-de-queso-1600.webp 1600w" sizes="(max-width: 979px) 92vw, 440px" alt="Pan de queso recién horneado en una sartén" width="800" height="600" loading="lazy" decoding="async"></div>
+                <div class="sheet__thumbs">
+                  <button type="button" class="sheet__thumb" data-photo="prod-pan-de-queso" data-alt="Pan de queso recién horneado en una sartén" aria-label="Ver foto: Pan de queso" aria-pressed="true"><img src="assets/img/thumb-prod-pan-de-queso.webp" alt="" width="160" height="120" loading="lazy" decoding="async"></button>
+                  <button type="button" class="sheet__thumb" data-photo="prod-coxinha" data-alt="Coxinha dorada servida en cápsula de papel" aria-label="Ver foto: Coxinha de pollo con catupiry" aria-pressed="false"><img src="assets/img/thumb-prod-coxinha.webp" alt="" width="160" height="120" loading="lazy" decoding="async"></button>
+                  <button type="button" class="sheet__thumb" data-photo="prod-pastel" data-alt="Pastel a la feria dorado en plato" aria-label="Ver foto: Pastel a la feria" aria-pressed="false"><img src="assets/img/thumb-prod-pastel.webp" alt="" width="160" height="120" loading="lazy" decoding="async"></button>
+                  <button type="button" class="sheet__thumb" data-photo="paseo-acai" data-alt="Bowl de açaí con fruta y granola" aria-label="Ver foto: Açaí" aria-pressed="false"><img src="assets/img/thumb-paseo-acai.webp" alt="" width="160" height="120" loading="lazy" decoding="async"></button>
+                </div>
+              </figure>
+            </div>
           </div>
-          <ul class="menu__rows">
-              <li><div><h4>Hamburguesa solo carne y queso</h4><p>Carne de ternera con queso fundido.</p></div><span class="price">7,90 €</span></li>
-              <li><div><h4>Ración de patatas</h4></div><span class="price">3,50 €</span></li>
-              <li><div><h4>Pimientos de Padrón</h4><p>Fritos con sal en escamas.</p></div><span class="price price--pending">Precio en el local</span></li>
-              <li><div><h4>Huevos revueltos con bacon</h4></div><span class="price price--pending">Precio en el local</span></li>
-            </ul>
-        </div>
-
-        <div class="menu__panel" role="tabpanel" id="p-cocteles" aria-labelledby="t-cocteles" hidden>
-          <p class="menu__intro">Solo para mayores de 18 años.</p>
-          
-          <ul class="menu__rows">
-              <li><div><h4>Bloom Original</h4><p>Caipiriña original.</p></div><span class="price price--pending">Precio en el local</span></li>
-              <li><div><h4>Golden Bloom</h4><p>Caipiriña de maracuyá.</p></div><span class="price price--pending">Precio en el local</span></li>
-              <li><div><h4>Purple Bloom</h4><p>Caipiriña de açaí.</p></div><span class="price price--pending">Precio en el local</span></li>
-              <li><div><h4>Pink Blossom</h4><p>Caipiriña de fresa.</p></div><span class="price price--pending">Precio en el local</span></li>
-              <li><div><h4>Mojito Bloom</h4><p>Mojito.</p></div><span class="price price--pending">Precio en el local</span></li>
-              <li><div><h4>Bloom Tonic</h4><p>Gin tonic.</p></div><span class="price price--pending">Precio en el local</span></li>
-              <li><div><h4>Berry Bloom</h4><p>Gin con frambuesa.</p></div><span class="price price--pending">Precio en el local</span></li>
-              <li><div><h4>Mata León</h4><p>Especial de la casa: whisky, gin y Coca-Cola.</p></div><span class="price price--pending">Precio en el local</span></li>
-            </ul>
+          <div class="menu__panel sheet" role="tabpanel" id="p-salados" aria-labelledby="t-salados" tabindex="0" hidden>
+            <header class="sheet__head"><span class="sheet__num" aria-hidden="true">06</span><h3 class="sheet__title">Salados &amp; Tapas</h3><p class="sheet__lede">Sándwiches, hamburguesas y tapas para compartir.</p></header>
+            <div class="sheet__body">
+              <div class="sheet__list">
+                <ul class="carte">
+                  <li class="carte__item carte__item--photo" data-photo="prod-hamburguesa" data-alt="Hamburguesa completa con huevo y queso en plato"><div class="carte__line"><span class="carte__name">Hamburguesa completa</span><span class="carte__dots" aria-hidden="true"></span><span class="price">8,50 €</span></div><p class="carte__desc">Lechuga, tomate, jamón york, queso, cebolla y bacon.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Hamburguesa solo carne y queso</span><span class="carte__dots" aria-hidden="true"></span><span class="price">7,90 €</span></div><p class="carte__desc">Carne de ternera con queso fundido.</p></li>
+                  <li class="carte__item carte__item--photo" data-photo="prod-sandwich-mixto" data-alt="Sándwich mixto tostado cortado en triángulos"><div class="carte__line"><span class="carte__name">Sándwich mixto</span><span class="carte__dots" aria-hidden="true"></span><span class="price">5,50 €</span></div><p class="carte__desc">Jamón york y queso fundido.</p></li>
+                  <li class="carte__item carte__item--photo" data-photo="prod-gambas" data-alt="Gambas empanadas con salsa"><div class="carte__line"><span class="carte__name">Gambas empanado</span><span class="carte__dots" aria-hidden="true"></span><span class="price">6,90 €</span></div></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Ración de patatas</span><span class="carte__dots" aria-hidden="true"></span><span class="price">3,50 €</span></div></li>
+                </ul>
+                <h4 class="carte__group"><span>Tapas</span></h4>
+                <ul class="carte">
+                  <li class="carte__item carte__item--photo" data-photo="prod-huevos-rotos" data-alt="Huevos rotos con jamón en cazuela"><div class="carte__line"><span class="carte__name">Huevos rotos con jamón</span><span class="carte__dots" aria-hidden="true"></span><span class="price price--pending">Precio en el local</span></div><p class="carte__desc">Patatas fritas con huevos rotos y jamón serrano.</p></li>
+                  <li class="carte__item carte__item--photo" data-photo="prod-tortilla" data-alt="Porción de tortilla española"><div class="carte__line"><span class="carte__name">Tortilla española</span><span class="carte__dots" aria-hidden="true"></span><span class="price price--pending">Precio en el local</span></div><p class="carte__desc">Tradicional, jugosa por dentro.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Pimientos de Padrón</span><span class="carte__dots" aria-hidden="true"></span><span class="price price--pending">Precio en el local</span></div><p class="carte__desc">Fritos con sal en escamas.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Huevos revueltos con bacon</span><span class="carte__dots" aria-hidden="true"></span><span class="price price--pending">Precio en el local</span></div></li>
+                </ul>
+              </div>
+              <figure class="sheet__photo">
+                <div class="sheet__frame"><img class="sheet__img" src="assets/img/prod-hamburguesa-800.webp" srcset="assets/img/prod-hamburguesa-800.webp 800w, assets/img/prod-hamburguesa-1600.webp 1600w" sizes="(max-width: 979px) 92vw, 440px" alt="Hamburguesa completa con huevo y queso en plato" width="800" height="600" loading="lazy" decoding="async"></div>
+                <div class="sheet__thumbs">
+                  <button type="button" class="sheet__thumb" data-photo="prod-hamburguesa" data-alt="Hamburguesa completa con huevo y queso en plato" aria-label="Ver foto: Hamburguesa completa" aria-pressed="true"><img src="assets/img/thumb-prod-hamburguesa.webp" alt="" width="160" height="120" loading="lazy" decoding="async"></button>
+                  <button type="button" class="sheet__thumb" data-photo="prod-sandwich-mixto" data-alt="Sándwich mixto tostado cortado en triángulos" aria-label="Ver foto: Sándwich mixto" aria-pressed="false"><img src="assets/img/thumb-prod-sandwich-mixto.webp" alt="" width="160" height="120" loading="lazy" decoding="async"></button>
+                  <button type="button" class="sheet__thumb" data-photo="prod-gambas" data-alt="Gambas empanadas con salsa" aria-label="Ver foto: Gambas empanado" aria-pressed="false"><img src="assets/img/thumb-prod-gambas.webp" alt="" width="160" height="120" loading="lazy" decoding="async"></button>
+                  <button type="button" class="sheet__thumb" data-photo="prod-huevos-rotos" data-alt="Huevos rotos con jamón en cazuela" aria-label="Ver foto: Huevos rotos con jamón" aria-pressed="false"><img src="assets/img/thumb-prod-huevos-rotos.webp" alt="" width="160" height="120" loading="lazy" decoding="async"></button>
+                  <button type="button" class="sheet__thumb" data-photo="prod-tortilla" data-alt="Porción de tortilla española" aria-label="Ver foto: Tortilla española" aria-pressed="false"><img src="assets/img/thumb-prod-tortilla.webp" alt="" width="160" height="120" loading="lazy" decoding="async"></button>
+                </div>
+              </figure>
+            </div>
+          </div>
+          <div class="menu__panel sheet" role="tabpanel" id="p-cocteles" aria-labelledby="t-cocteles" tabindex="0" hidden>
+            <header class="sheet__head"><span class="sheet__num" aria-hidden="true">07</span><h3 class="sheet__title">Cócteles</h3><p class="sheet__lede">Solo para mayores de 18 años.</p></header>
+            <div class="sheet__body">
+              <div class="sheet__list">
+                <ul class="carte">
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Bloom Original</span><span class="carte__dots" aria-hidden="true"></span><span class="price price--pending">Precio en el local</span></div><p class="carte__desc">Caipiriña original.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Golden Bloom</span><span class="carte__dots" aria-hidden="true"></span><span class="price price--pending">Precio en el local</span></div><p class="carte__desc">Caipiriña de maracuyá.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Purple Bloom</span><span class="carte__dots" aria-hidden="true"></span><span class="price price--pending">Precio en el local</span></div><p class="carte__desc">Caipiriña de açaí.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Pink Blossom</span><span class="carte__dots" aria-hidden="true"></span><span class="price price--pending">Precio en el local</span></div><p class="carte__desc">Caipiriña de fresa.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Mojito Bloom</span><span class="carte__dots" aria-hidden="true"></span><span class="price price--pending">Precio en el local</span></div><p class="carte__desc">Mojito.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Bloom Tonic</span><span class="carte__dots" aria-hidden="true"></span><span class="price price--pending">Precio en el local</span></div><p class="carte__desc">Gin tonic.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Berry Bloom</span><span class="carte__dots" aria-hidden="true"></span><span class="price price--pending">Precio en el local</span></div><p class="carte__desc">Gin con frambuesa.</p></li>
+                  <li class="carte__item"><div class="carte__line"><span class="carte__name">Mata León</span><span class="carte__dots" aria-hidden="true"></span><span class="price price--pending">Precio en el local</span></div><p class="carte__desc">Especial de la casa: whisky, gin y Coca-Cola.</p></li>
+                </ul>
+              </div>
+              <aside class="sheet__card" aria-label="Aviso">
+                <span class="sheet__badge">+18</span>
+                <p class="sheet__card-title">Cócteles de la casa</p>
+                <p>Solo para mayores de 18 años. Precio en el local.</p>
+              </aside>
+            </div>
+          </div>
         </div>
       </div>
       <p class="menu__note">Información de alérgenos pendiente de confirmar: si tienes alguna alergia o intolerancia, pregúntanos antes de pedir.</p>
