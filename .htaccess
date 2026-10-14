@@ -94,3 +94,8 @@
 #   RewriteCond %{REQUEST_FILENAME}.html -f
 #   RewriteRule ^(.+?)/?$ $1.html [L]
 # </IfModule>
+
+# ----- Development tooling: never serve it from the public site -----
+<IfModule mod_alias.c>
+  RedirectMatch 404 ^/\.(claude|git)(/|$)
+</IfModule>
