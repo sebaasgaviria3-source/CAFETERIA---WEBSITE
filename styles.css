@@ -119,65 +119,54 @@ strong, b { font-weight: var(--fw-bold); }
 .section-head h2 { margin-bottom: var(--space-3); }
 .section-head p { font-size: var(--fs-lede); color: var(--color-text-secondary); max-width: 52ch; margin-inline: auto; }
 
-/* ---------- Journey: illustration dives into the real place ---------- */
-.journey { position: relative; background: linear-gradient(180deg, var(--petal-100) 0, var(--petal-50) 900px); color: var(--color-text-on-dark); }
-.journey__intro { text-align: center; padding: 96px var(--gutter) 44px; max-width: 760px; margin: 0 auto; }
-.journey__intro h2 { color: var(--color-text-on-dark); margin-bottom: var(--space-3); }
-.journey__intro p { color: var(--color-text-on-dark-secondary); font-size: var(--fs-lede); line-height: 1.7; letter-spacing: .01em; }
-
-.scene { position: relative; height: 90vh; min-height: 560px; overflow: hidden; }
-.scene__art { position: absolute; inset: 0; overflow: hidden; }
-.layer { position: absolute; inset: 0; }
-svg.layer { width: 100%; height: 100%; }
+/* ---------- Paseo: five real-photo moments with crossfades ---------- */
+.journey { position: relative; background: linear-gradient(180deg, var(--petal-100) 0, var(--petal-50) 520px); color: var(--color-text); }
+.journey__intro { text-align: center; padding: var(--space-16) var(--gutter) var(--space-10); max-width: 760px; margin: 0 auto; }
+.journey__intro h2 { margin-bottom: var(--space-3); }
+.journey__intro p { color: var(--color-text-secondary); font-size: var(--fs-lede); margin: 0; }
 .journey__rail, .journey__bar { display: none; }
-.steam path { animation: steam 3s ease-in-out infinite; }
-.steam path:nth-child(2) { animation-delay: .8s; }
-@keyframes steam { 0%,100% { opacity: .2; transform: translateY(8px); } 50% { opacity: 1; transform: translateY(-6px); } }
 
-/* the real place, unveiled at the end of each dive */
-.unveil { position: absolute; inset: 0; opacity: 0; pointer-events: none; }
-.unveil__bg { position: absolute; inset: -6%; background-size: cover; background-position: center; filter: blur(18px) saturate(1.15); transform: scale(1.08); }
-.unveil__bg::after { content: ""; position: absolute; inset: 0; background: var(--color-overlay); }
-.unveil__frame { position: absolute; left: 50%; top: 48%; margin: 0; translate: -50% -50%; border-radius: var(--radius-lg); overflow: hidden; border: 6px solid var(--color-surface); background: var(--color-surface); box-shadow: var(--shadow-photo); }
-.unveil__frame--land { width: min(64vw, 820px); aspect-ratio: 4 / 3; }
-.unveil__frame--square { height: min(70vh, 640px); aspect-ratio: 1; }
-.unveil__frame--tall { height: min(72vh, 680px); aspect-ratio: 464 / 832; }
-.unveil__media { width: 100%; height: 100%; object-fit: cover; }
-.unveil__frame figcaption { position: absolute; left: var(--space-3); bottom: var(--space-3); padding: 7px 14px; border-radius: var(--radius-pill); background: var(--color-accent); color: var(--color-accent-text); font-weight: var(--fw-bold); font-size: var(--fs-small); }
-.journey:not(.is-live) .unveil { opacity: 1; }
-.journey:not(.is-live) .unveil__bg, .journey:not(.is-live) .layer { display: none; }
-.journey:not(.is-live) .scene { background: var(--color-bg-dark); }
+/* each beat: blurred, cream-veiled extension of its own photo + the photo itself, framed */
+.beat { position: relative; min-height: 88vh; overflow: hidden; display: grid; place-items: center; padding: var(--space-12) var(--gutter); }
+.beat__bg { position: absolute; inset: -8%; background-size: cover; background-position: center; filter: blur(28px) saturate(1.05); transform: scale(1.1); }
+.beat__bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgb(251 237 236 / .78), rgb(255 249 246 / .7)); }
+.beat__inner { position: relative; width: 100%; max-width: var(--max); display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); align-items: center; gap: clamp(28px, 5vw, 80px); }
+.beat__frame { margin: 0; border-radius: var(--radius-xl); overflow: hidden; background: var(--color-surface); box-shadow: var(--shadow-photo); justify-self: center; }
+.beat__frame--tall { height: min(72vh, 640px); aspect-ratio: 9 / 14; }
+.beat__frame--square { height: min(64vh, 560px); aspect-ratio: 1; }
+.beat__frame--land { width: min(100%, 720px); aspect-ratio: 3 / 2; }
+.beat__media { display: block; width: 100%; height: 100%; object-fit: cover; }
+.beat__pair { display: flex; align-items: center; justify-content: center; }
+.beat__pair .beat__frame { height: min(52vh, 440px); }
+.beat__pair .beat__frame--offset { margin-left: -12%; margin-top: 22%; border: 6px solid var(--color-surface); }
+.beat__copy { max-width: 360px; }
+.beat__copy h3 { font-size: clamp(2.2rem, 1.6rem + 2.4vw, 3.6rem); line-height: var(--lh-display); letter-spacing: var(--ls-display); margin-bottom: var(--space-3); }
+.beat__copy p { font-size: var(--fs-lede); color: var(--color-text-secondary); margin: 0; }
+.beat__copy .btn { margin-top: var(--space-6); }
 
-.scene__copy { position: absolute; z-index: 10; left: var(--gutter); bottom: 90px; max-width: 400px; padding: var(--space-6) 26px; border-radius: var(--radius-lg); background: var(--color-surface-glass); color: var(--color-text); box-shadow: var(--shadow-lg); }
-.scene--r .scene__copy, .scene--c .scene__copy { left: auto; right: var(--gutter); }
-.scene__copy h2 { font-size: var(--fs-h3); margin-bottom: var(--space-2); }
-.scene__copy p { font-size: var(--fs-small); color: var(--color-text-secondary); margin-bottom: 0; }
-.scene__copy .btn { margin-top: var(--space-4); }
-
-.journey.is-live { height: calc(var(--scenes, 5) * 170vh + 100vh); }
+/* live mode: the beats share one sticky stage and crossfade as you scroll */
+.journey.is-live { height: calc(var(--scenes, 5) * 75vh + 100vh); }
 .journey.is-live .journey__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
-.journey.is-live .scene { position: absolute; inset: 0; height: auto; min-height: 0; opacity: 0; will-change: opacity; }
-.journey.is-live .layer, .journey.is-live .unveil__frame { will-change: transform; }
-.journey.is-live .layer { transform-origin: var(--ox, 50%) var(--oy, 50%); backface-visibility: hidden; }
-.journey.is-live .scene__copy { opacity: 0; }
-.journey.is-live .journey__rail { display: flex; position: absolute; z-index: 20; left: 50%; bottom: 22px; transform: translateX(-50%); list-style: none; margin: 0; padding: 6px; gap: var(--space-1); border-radius: var(--radius-pill); background: var(--color-bg-dark-raised); box-shadow: var(--shadow-md); }
-.journey__rail li { padding: 6px 13px; border-radius: var(--radius-pill); font-size: var(--fs-label); font-weight: var(--fw-bold); color: var(--color-text-on-dark); transition: background .3s, color .3s; }
-.journey__rail li.is-active { background: var(--color-accent); color: var(--color-accent-text); }
-.journey.is-live .journey__bar { display: block; position: absolute; z-index: 20; left: 0; right: 0; top: 0; height: 4px; background: var(--color-border-on-dark); }
-.journey__bar span { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--color-primary-bright), var(--color-accent)); transform-origin: left; transform: scaleX(0); }
+.journey.is-live .beat { position: absolute; inset: 0; min-height: 0; padding-top: calc(var(--nav-h) + var(--space-6)); opacity: 0; visibility: hidden; }
+.journey.is-live .beat__bg, .journey.is-live .beat__frame { will-change: transform; }
+.journey.is-live .beat__copy { will-change: opacity, transform; }
+.journey.is-live .journey__rail { display: flex; position: absolute; z-index: 20; left: 50%; bottom: 22px; transform: translateX(-50%); list-style: none; margin: 0; padding: 6px; gap: var(--space-1); border-radius: var(--radius-pill); background: rgb(255 249 246 / .9); box-shadow: var(--ring), var(--shadow-md); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.journey__rail li { padding: 6px 13px; border-radius: var(--radius-pill); font-size: var(--fs-label); font-weight: var(--fw-bold); color: var(--color-text-secondary); transition: background .3s, color .3s; }
+.journey__rail li.is-active { background: var(--color-primary); color: var(--color-text-on-primary); }
+.journey.is-live .journey__bar { display: block; position: absolute; z-index: 20; left: 0; right: 0; top: var(--nav-h); height: 3px; background: rgb(194 65 107 / .12); }
+.journey__bar span { display: block; height: 100%; width: 100%; background: var(--color-primary); transform-origin: left; transform: scaleX(0); }
 
-@media (max-width: 900px) and (orientation: portrait) {
-  .journey.is-live .scene { background: var(--color-bg-dark); }
-  .journey.is-live .scene__art { inset: auto 12px auto 12px; top: calc(var(--nav-h) + 14px); height: 52svh; border-radius: var(--radius-lg); box-shadow: var(--shadow-photo); }
-  .unveil__frame { top: 50%; border-width: 4px; }
-  .unveil__frame--land { width: 88%; }
-  .unveil__frame--square { height: auto; width: 82%; }
-  .unveil__frame--tall { height: 90%; }
-}
 @media (max-width: 900px) {
-  .scene__copy, .scene--r .scene__copy, .scene--c .scene__copy { left: 16px; right: 16px; bottom: 84px; max-width: none; padding: 18px 20px; }
+  .beat { align-content: start; }
+  .beat__inner { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: var(--space-6); }
+  .beat__frame--tall { height: min(52svh, 480px); }
+  .beat__frame--square { height: auto; width: min(78vw, 46svh); }
+  .beat__frame--land { width: min(88vw, 560px); }
+  .beat__pair .beat__frame { height: auto; width: min(52vw, 30svh); }
+  .beat__copy { max-width: 32ch; }
+  .beat__copy h3 { font-size: 2.2rem; }
+  .journey.is-live { height: calc(var(--scenes, 5) * 70vh + 100vh); }
   .journey__rail li { padding: 5px 9px; font-size: .7rem; }
-  .journey.is-live { height: calc(var(--scenes, 5) * 150vh + 100vh); }
 }
 
 /* ---------- Açaí ---------- */
@@ -313,7 +302,6 @@ svg.layer { width: 100%; height: 100%; }
   .dock a:active { background: var(--color-primary-subtle); }
   .dock .dock__menu { background: var(--color-primary); color: var(--color-text-on-primary); font-size: .9rem; }
   .journey.is-live .journey__rail { bottom: calc(80px + env(safe-area-inset-bottom)); }
-  .scene__copy, .scene--r .scene__copy, .scene--c .scene__copy { bottom: calc(132px + env(safe-area-inset-bottom)); }
 }
 
 /* ---------- Reveal on scroll ---------- */

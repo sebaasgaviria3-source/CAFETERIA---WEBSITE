@@ -39,42 +39,32 @@
     setTimeout(function () { els.forEach(function (el) { el.classList.add("is-in"); }); }, 6000);
   }
 
-  /* ---------- Paseo: the drawing opens and the camera lands on the real place ----------
-     Per scene, t runs 0→1 over its stretch of scroll:
-       0.00–0.34  illustration holds (copy visible)
-       0.34–0.60  camera dives into the drawing; the real photo/video unveils
-       0.60–0.88  real place holds (caption visible)
-       0.88–1.00  exit; the next scene emerges underneath                       */
+  /* ---------- Paseo: five real-photo moments, crossfading as you scroll ----------
+     Per beat, t runs 0→1 over its stretch of scroll:
+       -0.22–0   fades in over the previous beat (photo settles from 1.04 → 1)
+        0–0.78   holds; the photo drifts gently (1 → 1.035), copy visible
+        0.78–1   fades out while the next beat fades in                     */
   function initJourney() {
     var root = $(".journey"); if (!root) return;
-    var scenes = $$(".scene", root); if (!scenes.length) return;
-    var N = scenes.length;
+    var beats = $$(".beat", root); if (!beats.length) return;
+    var N = beats.length;
     var rail = $$(".journey__rail li", root);
     var bar = $(".journey__bar span", root);
-    var ENTER = 0.12;
+    var FADE = 0.22;
 
     root.style.setProperty("--scenes", N);
     root.classList.add("is-live");
 
-    // start fetching the real photos a screen before the walk, so each unveil is ready
-    var warm = function () { $$(".unveil img", root).forEach(function (im) { im.loading = "eager"; }); };
+    // fetch the photos a screen before the walk so every crossfade is ready
+    var warm = function () { $$(".beat img", root).forEach(function (im) { im.loading = "eager"; }); };
     if ("IntersectionObserver" in window) {
       var wio = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { warm(); wio.disconnect(); } }, { rootMargin: "100% 0px" });
       wio.observe(root);
     } else warm();
 
-    var data = scenes.map(function (sc, i) {
-      sc.style.zIndex = String(N - i);
-      sc.style.setProperty("--ox", (sc.getAttribute("data-ox") || 50) + "%");
-      sc.style.setProperty("--oy", (sc.getAttribute("data-oy") || 50) + "%");
-      return {
-        el: sc,
-        copy: $(".scene__copy", sc),
-        unveil: $(".unveil", sc),
-        frame: $(".unveil__frame", sc),
-        video: $(".unveil video", sc),
-        layers: $$(".layer", sc).map(function (l) { return { el: l, d: parseFloat(l.getAttribute("data-depth")) || 0 }; })
-      };
+    var data = beats.map(function (b, i) {
+      b.style.zIndex = String(i + 1);   // later beats fade in on top
+      return { el: b, bg: $(".beat__bg", b), frames: $$(".beat__frame", b), copy: $(".beat__copy", b), video: $("video", b) };
     });
 
     var ticking = false;
@@ -83,7 +73,7 @@
       var rect = root.getBoundingClientRect();
       var total = root.offsetHeight - window.innerHeight;
       if (rect.bottom < -50 || rect.top > window.innerHeight + 50) {
-        data.forEach(function (s) { if (s.video && !s.video.paused) s.video.pause(); });
+        data.forEach(function (d) { if (d.video && !d.video.paused) d.video.pause(); });
         return;
       }
       var prog = clamp(-rect.top / Math.max(total, 1), 0, 1);
@@ -92,56 +82,32 @@
       var active = clamp(Math.floor(p), 0, N - 1);
       rail.forEach(function (li, i) { li.classList.toggle("is-active", i === active); });
 
-      data.forEach(function (s, i) {
-        var t = p - i, first = i === 0, last = i === N - 1;
-        var sceneOp = 0, z = 1, illOp = 1, unOp = 0, frameScale = 0.8;
+      data.forEach(function (d, i) {
+        var t = p - i, first = i === 0;
+        var op, scale, copyA;
+        if (first && t < 0) t = 0;
+        if (t < -FADE || t > 1 + FADE) { op = 0; }
+        else if (t < 0) { op = smooth((t + FADE) / FADE); }
+        else { op = 1; }                                  // stays opaque; the next beat covers it
+        if (t < 0) scale = 1.04 - 0.04 * easeOut((t + FADE) / FADE);
+        else scale = 1 + 0.035 * clamp(t, 0, 1);
+        copyA = Math.min(clamp((t + 0.04) / 0.14, 0, 1), i === N - 1 ? 1 : clamp((0.8 - t) / 0.12, 0, 1));
+        if (calm) scale = 1;
 
-        if (t < (first ? -1e9 : -ENTER) || (!last && t > 1)) {
-          sceneOp = 0;
-        } else {
-          sceneOp = 1;
-          if (t < 0) { var e = easeOut((t + ENTER) / ENTER); sceneOp = e; z = 0.86 + 0.14 * e; }
-          else if (t < 0.34) { z = 1 + 0.05 * (t / 0.34); }
-          else if (t < 0.6) {
-            var x = (t - 0.34) / 0.26;
-            z = 1.05 + 3.2 * x * x;
-            illOp = 1 - smooth((x - 0.45) / 0.55);
-            unOp = smooth((x - 0.3) / 0.6);
-            frameScale = 0.8 + 0.2 * easeOut(x);
-          } else {
-            illOp = 0; unOp = 1; z = 4.25;
-            frameScale = 1 + 0.04 * clamp((t - 0.6) / 0.28, 0, 1);
-            if (!last && t > 0.88) {
-              var y = (t - 0.88) / 0.12;
-              frameScale = 1.04 + 0.5 * y * y;
-              sceneOp = 1 - smooth(y);
-            }
-          }
+        d.el.style.opacity = op.toFixed(3);
+        d.el.style.visibility = op <= 0.001 ? "hidden" : "visible";
+        if (op > 0.001) {
+          d.frames.forEach(function (f) { f.style.transform = "scale(" + scale.toFixed(4) + ")"; });
+          if (d.bg) d.bg.style.transform = "scale(" + (1.1 + (scale - 1) * 0.6).toFixed(4) + ")";
         }
-        if (calm) { z = 1; frameScale = 1; }
-
-        s.el.style.opacity = sceneOp.toFixed(3);
-        s.el.style.visibility = sceneOp <= 0.001 ? "hidden" : "visible";
-        if (sceneOp > 0.001) {
-          s.layers.forEach(function (l) {
-            l.el.style.opacity = illOp.toFixed(3);
-            l.el.style.visibility = illOp <= 0.001 ? "hidden" : "visible";
-            if (illOp > 0.001) l.el.style.transform = "scale(" + (1 + (z - 1) * (1 + 0.35 * l.d)).toFixed(4) + ")";
-          });
-          if (s.unveil) s.unveil.style.opacity = unOp.toFixed(3);
-          if (s.frame) s.frame.style.transform = "scale(" + frameScale.toFixed(4) + ")";
+        if (d.copy) {
+          d.copy.style.opacity = copyA.toFixed(3);
+          d.copy.style.transform = calm ? "none" : "translateY(" + ((1 - copyA) * 14).toFixed(1) + "px)";
         }
-        if (s.video) {
-          if (unOp > 0.2 && sceneOp > 0.2) { if (s.video.paused) { var pr = s.video.play(); if (pr && pr.catch) pr.catch(function () {}); } }
-          else if (!s.video.paused) s.video.pause();
-        }
-        if (s.copy) {
-          var a = Math.min(clamp((t - 0.03) / 0.08, 0, 1), clamp((0.32 - t) / 0.06, 0, 1));
-          if (first && p < 0.04) a = 1;
-          if (last) a = Math.max(a, clamp((t - 0.62) / 0.08, 0, 1));
-          s.copy.style.opacity = a.toFixed(3);
-          s.copy.style.translate = "0 " + ((1 - a) * 18).toFixed(1) + "px";
-          s.copy.style.pointerEvents = a > 0.5 ? "auto" : "none";
+        if (d.video) {
+          var visible = op > 0.3 && t > -0.1 && t < 1.05;
+          if (visible && d.video.paused && !calm) { var pr = d.video.play(); if (pr && pr.catch) pr.catch(function () {}); }
+          else if (!visible && !d.video.paused) d.video.pause();
         }
       });
     }
