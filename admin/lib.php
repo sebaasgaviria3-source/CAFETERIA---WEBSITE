@@ -102,7 +102,7 @@ function bloom_send_security_headers(): void
     header('X-Content-Type-Options: nosniff');
     header('Referrer-Policy: same-origin');
     header('X-Robots-Tag: noindex, nofollow');
-    header("Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'");
+    header("Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'");
     header('Cache-Control: no-store');
 }
 

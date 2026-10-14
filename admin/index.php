@@ -75,9 +75,8 @@ $view = !$configured ? 'setup' : (bloom_logged_in() ? 'app' : 'login');
   <meta name="robots" content="noindex, nofollow">
   <title>Stock · Bloom Coffee &amp; Brunch</title>
   <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
-  <link rel="stylesheet" href="admin.css?v=20261012">
+  <link rel="stylesheet" href="../tokens.css?v=20261014">
+  <link rel="stylesheet" href="admin.css?v=20261014">
 </head>
 <body class="view-<?= h($view) ?>">
 

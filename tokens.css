@@ -1,0 +1,211 @@
+/* =========================================================================
+   Bloom Coffee & Brunch — design tokens (Phase 1 visual redesign)
+   Shared by the public site (styles.css) and the stock panel (admin.css).
+
+   Structure follows the seed → map → alias model used by Ant Design:
+     1. SEED       a handful of brand decisions (hues, fonts, base size…)
+     2. SCALES     10-step colour ramps generated from each seed in OKLCH
+     3. SEMANTIC   what a colour/size *means* (text, surface, primary…)
+     4. COMPONENT  per-component tokens built only from semantic tokens
+   Components must read layers 3–4 only. Change a seed/scale value here and
+   the whole site follows.
+
+   Contrast (WCAG 2.1, measured with the contrast-check skill):
+     #3D262E text on #FFF9F6 13.3 · #7E5663 secondary on #FFF9F6 5.9 /
+     on #FEE6E7 5.2 · white on #D82C66 4.7 · #B31352 links on #FFF9F6 6.4 /
+     on #FEE9D1 5.7 · #3D262E on #FEB25D 7.8 · #06764F on #FFF9F6 5.4 ·
+     #FFF9F6 on #2A1720 16.2 · #FEB25D on #2A1720 9.5
+   ========================================================================= */
+
+/* ---------- Fonts (self-hosted, OFL — see assets/fonts/OFL-*.txt) ---------- */
+@font-face {
+  font-family: "Gloock";
+  src: url("assets/fonts/gloock-latin-400-normal.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Gloock";
+  src: url("assets/fonts/gloock-latin-ext-400-normal.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("assets/fonts/figtree-latin-wght-normal.woff2") format("woff2-variations"), url("assets/fonts/figtree-latin-wght-normal.woff2") format("woff2");
+  font-weight: 300 900; font-style: normal; font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Figtree";
+  src: url("assets/fonts/figtree-latin-ext-wght-normal.woff2") format("woff2-variations"), url("assets/fonts/figtree-latin-ext-wght-normal.woff2") format("woff2");
+  font-weight: 300 900; font-style: normal; font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* metric-adjusted fallbacks keep the layout steady while the web fonts load */
+@font-face { font-family: "Gloock Fallback"; src: local("Georgia"), local("Times New Roman"); size-adjust: 104%; ascent-override: 92%; descent-override: 24%; }
+@font-face { font-family: "Figtree Fallback"; src: local("Arial"), local("Helvetica Neue"); size-adjust: 98%; ascent-override: 96%; descent-override: 25%; }
+
+:root {
+  /* ===================== 1 · SEED ===================== */
+  --seed-raspberry: #E0356B;   /* Bloom rose, intensified (logo + menu hearts) */
+  --seed-cacao: #4A2433;       /* coffee/cacao with a berry undertone */
+  --seed-mango: #FF9F1C;       /* mango & passion fruit from the product photos */
+  --seed-jade: #14966A;        /* the botanical green of the bar's living wall */
+  --seed-cream: #FFF9F6;       /* brand canvas */
+  --seed-font-display: "Gloock", "Gloock Fallback", Georgia, serif;
+  --seed-font-text: "Figtree", "Figtree Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --seed-font-size: 1.0625rem; /* 17px body */
+  --seed-radius: 12px;
+  --seed-space: 4px;
+
+  /* ===================== 2 · SCALES (generated, OKLCH) ===================== */
+  --raspberry-50: #FEF4F4;  --raspberry-100: #FEE6E7; --raspberry-200: #FECED2; --raspberry-300: #FFA9B3; --raspberry-400: #FE7B93;
+  --raspberry-500: #F64B79; --raspberry-600: #D82C66; --raspberry-700: #B31352; --raspberry-800: #86013D; --raspberry-900: #590028;
+  --cacao-50: #FEF4F6;  --cacao-100: #F9E8EC; --cacao-200: #F0D4DB; --cacao-300: #E0B8C3; --cacao-400: #CB9CA9;
+  --cacao-500: #B48492; --cacao-600: #9A6D7B; --cacao-700: #7E5663; --cacao-800: #5D3D48; --cacao-900: #3D262E; --cacao-950: #2A1720;
+  --mango-50: #FFF5EA;  --mango-100: #FEE9D1; --mango-200: #FFD4A4; --mango-300: #FEB25D; --mango-400: #EE921B;
+  --mango-500: #D27C06; --mango-600: #B36605; --mango-700: #925004; --mango-800: #6E3700; --mango-900: #482200;
+  --jade-50: #E9FCF4;  --jade-100: #D4F6E8; --jade-200: #B1ECD3; --jade-300: #81D9B6; --jade-400: #56C299;
+  --jade-500: #33AB7F; --jade-600: #0A9266; --jade-700: #06764F; --jade-800: #035637; --jade-900: #013821;
+  --sand-50: #FCF5F1;  --sand-100: #F6EAE2; --sand-200: #EDD8CA; --sand-300: #DBBDAB; --sand-400: #C6A38E;
+
+  /* ===================== 3 · SEMANTIC ===================== */
+  /* backgrounds & surfaces */
+  --color-bg: var(--seed-cream);              /* page canvas */
+  --color-bg-blush: var(--raspberry-100);     /* featured sections (hero, carta) */
+  --color-bg-apricot: var(--mango-100);       /* warm alternate sections */
+  --color-bg-dark: var(--cacao-950);          /* dramatic blocks: paseo, footer */
+  --color-bg-dark-raised: var(--cacao-900);
+  --color-surface: #FFFFFF;                   /* cards, panels */
+  --color-surface-glass: rgb(255 249 246 / .92);
+  --color-overlay: rgb(42 23 32 / .38);       /* tint over blurred photos */
+
+  /* text */
+  --color-text-heading: var(--cacao-950);
+  --color-text: var(--cacao-900);
+  --color-text-secondary: var(--cacao-700);
+  --color-text-on-dark: var(--seed-cream);
+  --color-text-on-dark-secondary: var(--cacao-200);
+  --color-text-on-primary: #FFFFFF;
+
+  /* brand & interaction */
+  --color-primary: var(--raspberry-600);          /* primary buttons, key CTAs */
+  --color-primary-hover: var(--raspberry-700);
+  --color-primary-active: var(--raspberry-800);
+  --color-primary-subtle: var(--raspberry-100);   /* tinted fills */
+  --color-primary-text: var(--raspberry-700);     /* prices, links, emphasis on light */
+  --color-primary-bright: var(--raspberry-400);   /* accents on dark backgrounds */
+  --color-accent: var(--mango-300);               /* highlights, badges, today's hours */
+  --color-accent-strong: var(--mango-400);
+  --color-accent-text: var(--cacao-950);          /* text placed on --color-accent */
+  --color-botanical: var(--jade-600);
+  --color-success: var(--jade-700);               /* "Abierto ahora" */
+  --color-link: var(--raspberry-700);
+  --color-link-hover: var(--raspberry-800);
+  --color-focus: var(--raspberry-600);
+
+  /* lines */
+  --color-border: var(--sand-200);
+  --color-border-strong: var(--sand-300);
+  --color-border-on-dark: rgb(255 249 246 / .16);
+
+  /* pattern ink for the calçadão waves */
+  --color-pattern: var(--raspberry-200);
+
+  /* typography */
+  --font-display: var(--seed-font-display);
+  --font-text: var(--seed-font-text);
+  --fs-display: clamp(2.6rem, 1.5rem + 3vw, 3.9rem);      /* H1 */
+  --fs-h2: clamp(2.1rem, 1.4rem + 2.8vw, 3.5rem);         /* section headings */
+  --fs-h3: clamp(1.5rem, 1.2rem + 1vw, 2rem);             /* sub-sections, scene titles */
+  --fs-title: 1.1875rem;                                  /* product names */
+  --fs-lede: clamp(1.0625rem, 1rem + .4vw, 1.3125rem);
+  --fs-body: var(--seed-font-size);
+  --fs-small: .9375rem;
+  --fs-label: .78rem;
+  --fs-price: 1.125rem;
+  --fs-price-hero: 2.4rem;
+  --fw-regular: 400; --fw-medium: 500; --fw-semibold: 600; --fw-bold: 700; --fw-heavy: 800;
+  --lh-display: 1;
+  --lh-heading: 1.08;
+  --lh-snug: 1.3;
+  --lh-body: 1.6;
+  --ls-display: -.025em;
+  --ls-heading: -.015em;
+  --ls-label: .14em;
+  --ls-button: .01em;
+  --measure: 65ch;
+
+  /* spacing (4px base) */
+  --space-1: calc(var(--seed-space) * 1);  --space-2: calc(var(--seed-space) * 2);
+  --space-3: calc(var(--seed-space) * 3);  --space-4: calc(var(--seed-space) * 4);
+  --space-5: calc(var(--seed-space) * 5);  --space-6: calc(var(--seed-space) * 6);
+  --space-8: calc(var(--seed-space) * 8);  --space-10: calc(var(--seed-space) * 10);
+  --space-12: calc(var(--seed-space) * 12); --space-16: calc(var(--seed-space) * 16);
+  --space-section: clamp(80px, 10vw, 136px);
+  --gutter: clamp(16px, 4vw, 56px);
+  --max: 1240px;
+  --nav-h: 76px;
+
+  /* radii */
+  --radius-sm: calc(var(--seed-radius) - 4px);  /* 8 */
+  --radius-md: var(--seed-radius);              /* 12 */
+  --radius-lg: calc(var(--seed-radius) + 4px);  /* 16 */
+  --radius-xl: calc(var(--seed-radius) * 2);    /* 24 */
+  --radius-pill: 999px;
+
+  /* shadows: one light source (above), layered, tinted with cacao */
+  --shadow-color: 330 45% 14%;
+  --shadow-sm: 0 1px 2px hsl(var(--shadow-color) / .08), 0 2px 6px hsl(var(--shadow-color) / .08);
+  --shadow-md: 0 1px 2px hsl(var(--shadow-color) / .07), 0 4px 10px hsl(var(--shadow-color) / .08), 0 12px 24px hsl(var(--shadow-color) / .08);
+  --shadow-lg: 0 2px 4px hsl(var(--shadow-color) / .06), 0 8px 16px hsl(var(--shadow-color) / .08), 0 24px 48px hsl(var(--shadow-color) / .12);
+  --shadow-photo: 0 2px 6px hsl(var(--shadow-color) / .1), 0 18px 40px hsl(var(--shadow-color) / .18), 0 40px 80px -20px hsl(var(--shadow-color) / .25);
+  --ring: 0 0 0 1px hsl(var(--shadow-color) / .06);
+
+  /* motion */
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --dur-fast: .15s;
+  --dur-base: .25s;
+  --dur-slow: .45s;
+
+  /* textures & gradients (subtle, decorative only) */
+  --texture-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.1 0 0 0 0 0.13 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --gradient-hero: radial-gradient(60% 55% at 88% 12%, rgb(254 178 93 / .55), transparent 70%), radial-gradient(55% 60% at 4% 96%, rgb(246 75 121 / .28), transparent 70%), var(--color-bg-blush);
+  --gradient-warm: linear-gradient(180deg, var(--color-bg-apricot), var(--color-bg) 85%);
+  --gradient-dark: radial-gradient(70% 60% at 50% 0%, rgb(179 19 82 / .35), transparent 70%), var(--color-bg-dark);
+
+  /* ===================== 4 · COMPONENT ===================== */
+  --btn-height: 48px;
+  --btn-radius: var(--radius-pill);
+  --btn-font: var(--fw-bold) 1rem/1.1 var(--font-text);
+  --btn-primary-bg: var(--color-primary);
+  --btn-primary-bg-hover: var(--color-primary-hover);
+  --btn-primary-bg-active: var(--color-primary-active);
+  --btn-primary-fg: var(--color-text-on-primary);
+  --btn-secondary-bg: var(--color-surface);
+  --btn-secondary-fg: var(--color-text);
+  --btn-secondary-border: var(--color-border-strong);
+  --btn-secondary-border-hover: var(--color-primary);
+  --btn-dark-bg: var(--color-bg-dark);
+
+  --card-bg: var(--color-surface);
+  --card-radius: var(--radius-lg);
+  --card-shadow: var(--ring), var(--shadow-md);
+  --card-shadow-hover: var(--ring), var(--shadow-lg);
+
+  --chip-bg: var(--color-surface);
+  --chip-fg: var(--color-text);
+  --chip-border: var(--color-border-strong);
+  --chip-active-bg: var(--color-bg-dark);
+  --chip-active-fg: var(--color-text-on-dark);
+
+  --nav-bg: rgb(255 249 246 / .9);
+  --nav-link: var(--color-text);
+  --nav-link-hover: var(--color-primary-text);
+  --nav-underline: var(--color-primary);
+
+  --badge-bg: var(--color-accent);
+  --badge-fg: var(--color-accent-text);
+  --price-color: var(--color-primary-text);
+}
