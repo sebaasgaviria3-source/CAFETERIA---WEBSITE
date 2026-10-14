@@ -15,16 +15,16 @@
   <meta property="og:site_name" content="Bloom Coffee &amp; Brunch">
   <meta property="og:title" content="Bloom Coffee &amp; Brunch · Vigo">
   <meta property="og:description" content="Café de especialidad y brunch en Calle Ángel Llanos 10, Vigo.">
-  <meta property="og:image" content="https://bloomcoffeebrunch.com/assets/img/paseo-ventana-1600.webp">
+  <meta property="og:image" content="https://bloomcoffeebrunch.com/assets/img/paseo-barra-1600.webp">
   <meta property="og:url" content="https://bloomcoffeebrunch.com/">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/img/logo-bloom.png">
   <link rel="preload" href="assets/fonts/gloock-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" as="image" href="assets/img/paseo-ventana-800.webp" imagesrcset="assets/img/paseo-ventana-800.webp 800w, assets/img/paseo-ventana-1600.webp 1600w" imagesizes="(max-width: 860px) 92vw, 46vw">
-  <link rel="stylesheet" href="tokens.css?v=20261014">
-  <link rel="stylesheet" href="styles.css?v=20261014">
+  <link rel="preload" as="image" href="assets/img/paseo-barra-1600.webp" imagesrcset="assets/img/paseo-barra-800.webp 800w, assets/img/paseo-barra-1600.webp 1365w" imagesizes="100vw">
+  <link rel="stylesheet" href="tokens.css?v=20261014b">
+  <link rel="stylesheet" href="styles.css?v=20261014b">
   <script defer src="lib/manifest.js?v=20261014"></script>
   <script defer src="main.js?v=20261014"></script>
   <script type="application/ld+json">
@@ -126,7 +126,9 @@
 
     <!-- ===================== HERO ===================== -->
     <section class="hero grain" id="contenido">
-      <svg class="hero__waves" aria-hidden="true"><rect width="100%" height="100%" fill="url(#ondas)"/></svg>
+      <div class="hero__bg">
+        <img src="assets/img/paseo-barra-1600.webp" srcset="assets/img/paseo-barra-800.webp 800w, assets/img/paseo-barra-1600.webp 1365w" sizes="100vw" alt="La barra de Bloom Coffee &amp; Brunch: listones rosas, vitrina y el rótulo Coffee Bloom Brunch bajo el jardín vertical" width="1365" height="1024" fetchpriority="high" decoding="async">
+      </div>
       <div class="hero__inner">
         <div class="hero__text">
           <p class="status" data-open-status hidden><span class="status__dot"></span><span data-open-label></span></p>
@@ -146,9 +148,6 @@
             <li><a href="#visita"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Horario</a></li>
           </ul>
         </div>
-        <figure class="hero__media">
-          <img src="assets/img/paseo-ventana-800.webp" srcset="assets/img/paseo-ventana-800.webp 800w, assets/img/paseo-ventana-1600.webp 1600w" sizes="(max-width: 860px) 92vw, 46vw" fetchpriority="high" alt="El osito de Bloom junto a la ventana con el logo, una taza de café y un alfajor" width="1200" height="1200">
-        </figure>
       </div>
     </section>
 
@@ -665,7 +664,7 @@
     </section>
 
     <!-- ===================== SOBRE BLOOM ===================== -->
-    <div class="about-wrap">
+    <div class="about-wrap photo-bg" style="--photo: url(assets/img/paseo-sala-1600.webp)">
     <section class="about" id="sobre" aria-labelledby="about-title">
       <div class="about__text reveal">
         <h2 id="about-title">Un lugar para disfrutar y <em>sentirse en casa.</em></h2>
@@ -677,7 +676,7 @@
     </div>
 
     <!-- ===================== HORARIOS Y CONTACTO ===================== -->
-    <section class="visit" id="visita" aria-labelledby="visit-title">
+    <section class="visit photo-bg" style="--photo: url(assets/img/prod-mesa-1600.webp)" id="visita" aria-labelledby="visit-title">
       <div class="visit__card reveal">
         <div class="visit__top">
           <h2 id="visit-title">Horarios y contacto.</h2>

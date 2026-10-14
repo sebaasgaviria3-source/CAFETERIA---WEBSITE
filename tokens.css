@@ -10,11 +10,11 @@
    Components must read layers 3–4 only. Change a seed/scale value here and
    the whole site follows.
 
-   Contrast (WCAG 2.1, measured with the contrast-check skill):
-     #3D262E text on #FFF9F6 13.3 · #7E5663 secondary on #FFF9F6 5.9 /
-     on #FEE6E7 5.2 · white on #D82C66 4.7 · #B31352 links on #FFF9F6 6.4 /
-     on #FEE9D1 5.7 · #3D262E on #FEB25D 7.8 · #06764F on #FFF9F6 5.4 ·
-     #FFF9F6 on #2A1720 16.2 · #FEB25D on #2A1720 9.5
+   Contrast (WCAG 2.1, measured with the contrast-check skill), pastel set:
+     white on #C2416B buttons 4.9 · #A8355A prices/links on #FFF9F6 6.1 /
+     on #F6DCDF 4.9 / on #FCEADB 5.4 · #3D262E text on #F6DCDF 10.7 ·
+     #765A62 secondary on #F6DCDF 4.8 / #FCEADB 5.3 / #FBEDEC 5.4 ·
+     #3D262E on #F8CFA0 honey 9.5 · #3F6B4E sage on #FFF9F6 5.9
    ========================================================================= */
 
 /* ---------- Fonts (self-hosted, OFL — see assets/fonts/OFL-*.txt) ---------- */
@@ -68,50 +68,54 @@
   --mango-500: #D27C06; --mango-600: #B36605; --mango-700: #925004; --mango-800: #6E3700; --mango-900: #482200;
   --jade-50: #E9FCF4;  --jade-100: #D4F6E8; --jade-200: #B1ECD3; --jade-300: #81D9B6; --jade-400: #56C299;
   --jade-500: #33AB7F; --jade-600: #0A9266; --jade-700: #06764F; --jade-800: #035637; --jade-900: #013821;
+  /* pastel family (Phase 1b: warm, soft, harmonious) */
+  --petal-50: #FBEDEC; --petal-100: #F6DCDF; --petal-200: #EFC9CE; --apricot-100: #FCEADB; --nude-100: #F1E1D8;
+  --rose-600: #C2416B; --rose-700: #B13A61; --rose-800: #A8355A; --rose-900: #8C2B4B;
+  --honey-200: #F8CFA0; --sage-600: #6E9277; --sage-800: #3F6B4E; --cocoa-text-2: #765A62;
   --sand-50: #FCF5F1;  --sand-100: #F6EAE2; --sand-200: #EDD8CA; --sand-300: #DBBDAB; --sand-400: #C6A38E;
 
   /* ===================== 3 · SEMANTIC ===================== */
   /* backgrounds & surfaces */
   --color-bg: var(--seed-cream);              /* page canvas */
-  --color-bg-blush: var(--raspberry-100);     /* featured sections (hero, carta) */
-  --color-bg-apricot: var(--mango-100);       /* warm alternate sections */
-  --color-bg-dark: var(--cacao-950);          /* dramatic blocks: paseo, footer */
-  --color-bg-dark-raised: var(--cacao-900);
+  --color-bg-blush: var(--petal-50);         /* soft pink sections */
+  --color-bg-apricot: var(--apricot-100);    /* warm pastel alternate */
+  --color-bg-dark: var(--petal-100);         /* deepest pastel block (was dark cacao) */
+  --color-bg-dark-raised: var(--petal-200);
   --color-surface: #FFFFFF;                   /* cards, panels */
   --color-surface-glass: rgb(255 249 246 / .92);
-  --color-overlay: rgb(42 23 32 / .38);       /* tint over blurred photos */
+  --color-overlay: rgb(255 249 246 / .55);    /* cream veil over blurred photos */
 
   /* text */
   --color-text-heading: var(--cacao-950);
   --color-text: var(--cacao-900);
-  --color-text-secondary: var(--cacao-700);
-  --color-text-on-dark: var(--seed-cream);
-  --color-text-on-dark-secondary: var(--cacao-200);
+  --color-text-secondary: var(--cocoa-text-2);
+  --color-text-on-dark: var(--cacao-950);     /* pastel blocks keep dark text */
+  --color-text-on-dark-secondary: var(--cocoa-text-2);
   --color-text-on-primary: #FFFFFF;
 
   /* brand & interaction */
-  --color-primary: var(--raspberry-600);          /* primary buttons, key CTAs */
-  --color-primary-hover: var(--raspberry-700);
-  --color-primary-active: var(--raspberry-800);
-  --color-primary-subtle: var(--raspberry-100);   /* tinted fills */
-  --color-primary-text: var(--raspberry-700);     /* prices, links, emphasis on light */
-  --color-primary-bright: var(--raspberry-400);   /* accents on dark backgrounds */
-  --color-accent: var(--mango-300);               /* highlights, badges, today's hours */
-  --color-accent-strong: var(--mango-400);
+  --color-primary: var(--rose-600);               /* CTAs: dusty raspberry, white text 4.9:1 */
+  --color-primary-hover: var(--rose-700);
+  --color-primary-active: var(--rose-900);
+  --color-primary-subtle: var(--petal-100);
+  --color-primary-text: var(--rose-800);          /* prices, links, emphasis */
+  --color-primary-bright: var(--rose-600);
+  --color-accent: var(--honey-200);               /* soft honey badges & highlights */
+  --color-accent-strong: var(--mango-300);
   --color-accent-text: var(--cacao-950);          /* text placed on --color-accent */
-  --color-botanical: var(--jade-600);
-  --color-success: var(--jade-700);               /* "Abierto ahora" */
-  --color-link: var(--raspberry-700);
-  --color-link-hover: var(--raspberry-800);
-  --color-focus: var(--raspberry-600);
+  --color-botanical: var(--sage-600);
+  --color-success: var(--sage-800);
+  --color-link: var(--rose-800);
+  --color-link-hover: var(--rose-900);
+  --color-focus: var(--rose-600);
 
   /* lines */
   --color-border: var(--sand-200);
   --color-border-strong: var(--sand-300);
-  --color-border-on-dark: rgb(255 249 246 / .16);
+  --color-border-on-dark: rgb(61 38 46 / .12);
 
   /* pattern ink for the calçadão waves */
-  --color-pattern: var(--raspberry-200);
+  --color-pattern: var(--petal-200);
 
   /* typography */
   --font-display: var(--seed-font-display);
@@ -171,9 +175,9 @@
 
   /* textures & gradients (subtle, decorative only) */
   --texture-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.1 0 0 0 0 0.13 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  --gradient-hero: radial-gradient(60% 55% at 88% 12%, rgb(254 178 93 / .55), transparent 70%), radial-gradient(55% 60% at 4% 96%, rgb(246 75 121 / .28), transparent 70%), var(--color-bg-blush);
-  --gradient-warm: linear-gradient(180deg, var(--color-bg-apricot), var(--color-bg) 85%);
-  --gradient-dark: radial-gradient(70% 60% at 50% 0%, rgb(179 19 82 / .35), transparent 70%), var(--color-bg-dark);
+  --gradient-hero: linear-gradient(180deg, var(--color-bg-blush), var(--color-bg-blush));
+  --gradient-warm: linear-gradient(180deg, var(--color-bg-blush), var(--color-bg-apricot));
+  --gradient-dark: linear-gradient(180deg, var(--color-bg-blush), var(--petal-100) 30%, var(--petal-100) 70%, var(--color-bg-blush));
 
   /* ===================== 4 · COMPONENT ===================== */
   --btn-height: 48px;
@@ -200,7 +204,7 @@
   --chip-active-bg: var(--color-bg-dark);
   --chip-active-fg: var(--color-text-on-dark);
 
-  --nav-bg: rgb(255 249 246 / .9);
+  --nav-bg: rgb(255 249 246 / .86);
   --nav-link: var(--color-text);
   --nav-link-hover: var(--color-primary-text);
   --nav-underline: var(--color-primary);
